@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import './GridSelection.css';
 
-function GridSelection(){
+function GridSelection({onConfirm}){
     const [grid, setGrid] = useState(null)
     return(
         <>
@@ -21,9 +21,9 @@ function GridSelection(){
             </button>
         </div>
         
-        <p>selected grid: {grid || "None"}</p>
+        <p>selected grid: {grid || "none"}</p>
 
-        <button className="confirm">confirm</button> 
+        <button className="confirm" onClick={() => onConfirm(grid)} disabled={!grid}>confirm</button> 
         </>
     )
 }

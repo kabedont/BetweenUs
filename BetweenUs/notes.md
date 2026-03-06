@@ -33,3 +33,42 @@
 - `outline` adds line outside border
 - `filter` adds visual effects
 - `opacity` changes transparency
+
+### 3/6/26
+**When doing math with strings**
+- Convert to numbers as early as possible if you're going to do math with them
+    ```jsx
+    const [rows, cols] = gridSize.split('x').map(Number); 
+    const totalSlots = rows * cols;
+    ```
+- `.map()` goes to every element in the array and converts whatever state they're at to what's inside the bracket
+- Step	What happens	            Example ("3x4")
+- 1	    gridSize.split('x')	        ["3", "4"]
+- 2	    .map(Number)	            [3, 4]
+- 3	    const [rows, cols] = ...	rows = 3, cols = 4
+
+
+
+# Tic Tac Toe Tutorial Notes 🌷
+
+### Day 1: 1/22/26
+**What I learned:**
+- you define *className="..."* on HTML elements (like `<button>`, `<div>`) that need CSS styling. 
+
+
+### Day 2: 1/24/26
+**What I learned:**
+- to "remember" things, components use *state* (import first before use)
+    - *value*: what's displayed right now (starts as null/empty)
+    - *setValue*: function to change what's displayed
+    - The *null* passed to *useState* is used as the initial value for this state variable ("give me a storage box starting empty")
+```jsx
+import {useState} from 'react';
+function Square(){
+    const [value, setValue] = useState(null);
+}
+```
+
+### Day 3: 1/27/26
+**What I learned:**
+- move the useState function UP from square to board function allows
