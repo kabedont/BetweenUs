@@ -42,11 +42,28 @@
     const totalSlots = rows * cols;
     ```
 - `.map()` goes to every element in the array and converts whatever state they're at to what's inside the bracket
-- Step	What happens	            Example ("3x4")
-- 1	    gridSize.split('x')	        ["3", "4"]
-- 2	    .map(Number)	            [3, 4]
-- 3	    const [rows, cols] = ...	rows = 3, cols = 4
 
+| Step | What happens | Example ("3x4") |
+|:---:|:---:|:---:|
+| 1 | `gridSize.split('x')` | `["3", "4"]` |
+| 2 | `.map(Number)` | `[3, 4]` |
+| 3 | `const [rows, cols] = ...` | `rows = 3, cols = 4` |
+
+### 3/7/26
+**Understanding Code** 
+```jsx
+{Array.from({ length: totalSlots }).map((_, index) => (
+  <button key={index} className='slots'>+</button>
+))}
+```
+| Step | Code | What it does | Example (`totalSlots = 4`) |
+|:---|:---|:---|:---|
+| 1 | `Array.from({ length: totalSlots })` | Creates an array with `totalSlots` empty slots | `[empty, empty, empty, empty]` |
+| 2 | `.map((_, index) => ...)` | Loops through each empty slot | Loop runs 4 times |
+| 3 | `_` | Placeholder for the current item (unused) | `_` = `undefined` |
+| 4 | `index` | Current position number | 0, 1, 2, 3 |
+| 5 | `key={index}` | Unique identifier React needs for lists | `key=0`, `key=1`, etc. |
+| 6 | `<button>+</button>` | The JSX returned for each loop | One button per slot |
 
 
 # Tic Tac Toe Tutorial Notes 🌷

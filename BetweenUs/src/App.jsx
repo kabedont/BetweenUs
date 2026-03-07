@@ -19,7 +19,7 @@ function App(){
       <Header />
         <div className="main-content">
           {currentScreen === 'setup' && (<GridSelection onConfirm={handleConfirm}/>)}
-          {currentScreen === 'upload' && (<PhotoUpload/>)}
+          {currentScreen === 'upload' && (<PhotoUpload gridSize={gridSize}/>)}
         </div>
     </div>
   );

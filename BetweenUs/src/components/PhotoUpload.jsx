@@ -2,16 +2,20 @@ import {useState} from 'react';
 import './PhotoUpload.css'
 
 function PhotoUpload({gridSize}) {
-  const totalSlots = () => {
-    const [rows, cols] = gridSize.split('x').map(Number);
-    const totalSlots = rows * cols;
-    return totalSlots;
-  }
+  //calculating total number of slots
+  const [rows, cols] = gridSize.split('x').map(Number);
+  const totalSlots = rows * cols;
 
+  //return function
   return (
-      <div style={{textAlign: 'center' }}>
-        <h2>coming soon!</h2>
-      </div>
+      <>
+        <h2>{totalSlots} pictures to upload</h2>
+        <div className='photo-grid'>
+          {Array.from({length: totalSlots}).map((_, index) => (
+            <button key={index} className='slots'>+</button>
+          ))}
+        </div>
+      </>
   );
 }
 
