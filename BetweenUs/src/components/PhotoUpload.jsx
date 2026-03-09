@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import './PhotoUpload.css'
+import './PhotoUpload.css';
 
 function PhotoUpload({gridSize}) {
   //calculating total number of slots
@@ -10,7 +10,7 @@ function PhotoUpload({gridSize}) {
   return (
       <>
         <h2>{totalSlots} pictures to upload</h2>
-        <div className='photo-grid'>
+        <div className='photo-grid' style={{gridTemplateColumns: `repeat(${cols}, 1fr)`}}>
           {Array.from({length: totalSlots}).map((_, index) => (
             <button key={index} className='slots'>+</button>
           ))}

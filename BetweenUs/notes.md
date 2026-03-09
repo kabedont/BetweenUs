@@ -1,5 +1,22 @@
 # BetweenUs Notes 🌷
 
+### 1/24/26
+**What I learned:**
+- to "remember" things, components use *state* (import first before use)
+    - *value*: what's displayed right now (starts as null/empty)
+    - *setValue*: function to change what's displayed
+    - The *null* passed to *useState* is used as the initial value for this state variable ("give me a storage box starting empty")
+```jsx
+import {useState} from 'react';
+function Square(){
+    const [value, setValue] = useState(null);
+}
+```
+
+### 1/27/26
+**What I learned:**
+- move the useState function UP from square to board function allows
+
 ### 2/13/26
 **What I learned:**
 - data flows in one direction:
@@ -66,26 +83,11 @@
 | 6 | `<button>+</button>` | The JSX returned for each loop | One button per slot |
 
 
-# Tic Tac Toe Tutorial Notes 🌷
+### 3/8/26
+**css in .jsx**
+- `<div className='photo-grid' style={{gridTemplateColumns: 'repeat(${cols}, 1fr)'}}>`
+    - ` backticks create a string, so it's not read by the jsx, but the css
+    - `${cols}` have an $ bc it's inside a string
 
-### Day 1: 1/22/26
-**What I learned:**
-- you define *className="..."* on HTML elements (like `<button>`, `<div>`) that need CSS styling. 
-
-
-### Day 2: 1/24/26
-**What I learned:**
-- to "remember" things, components use *state* (import first before use)
-    - *value*: what's displayed right now (starts as null/empty)
-    - *setValue*: function to change what's displayed
-    - The *null* passed to *useState* is used as the initial value for this state variable ("give me a storage box starting empty")
-```jsx
-import {useState} from 'react';
-function Square(){
-    const [value, setValue] = useState(null);
-}
-```
-
-### Day 3: 1/27/26
-**What I learned:**
-- move the useState function UP from square to board function allows
+**borders in css layout:**
+- `border: {width} {style} {color};`
