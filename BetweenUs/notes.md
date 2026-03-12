@@ -91,3 +91,26 @@ function Square(){
 
 **borders in css layout:**
 - `border: {width} {style} {color};`
+
+### 3/12/26
+**using useRef**
+- `useRef` is a React hook that gives you a mutable object with a `.current` property that persists across re-renders.
+- FORMAT: `const fileInputRef = useRef(null);`
+    - `useRef()` - Creates a ref object
+    - `(null)` - Initial value (can be anything)
+    - `fileInputRef` - The ref object you'll use
+- `fileInputRef.current.click();`
+    - `fileInputRef.current` - Gets the actual DOM input element
+    - `.click()` - Programmatically clicks it — opens file picker  
+
+🔄 `useState` vs `useRef`
+
+| Feature | `useState` | `useRef` |
+|---------|------------|----------|
+| **Re-renders when changed** | ✅ Yes | ❌ No |
+| **Use case** | Values that affect UI | Values that don't affect UI |
+| **Examples** | Form inputs, toggles, counters | DOM elements, timers, previous values |
+
+### Why This Matters for File Upload
+
+We don't want the whole component to re-render just because we clicked a file input — that's why we use `useRef` to store the reference to the DOM element.
