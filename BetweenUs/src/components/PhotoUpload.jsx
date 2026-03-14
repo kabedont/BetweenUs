@@ -8,11 +8,18 @@ function PhotoUpload({gridSize}) {
 
   //uploaded pictures
   const [photos, setPhotos] = useState(Array(totalSlots).fill(null));
+  const [selectedSlot,setSelectedSlot] = useState(null); //remember clicked slot
   const handleSlotClick = (index) => {
-    console.log(`slot clicked`, index);
-    fileInputRef.current.click();
+    setSelectedSlot(index);         //remember which slot
+    fileInputRef.current.click();   //open file picker
   }
-
+  const handleFileSelect = (event) => {
+    const file = event.target.files[0];
+    if (!file) return;
+    console.log(`File selected: `, file);
+    console.log(`For Slot`, selectedSlot);
+  }
+  
   //making a ref
   const fileInputRef = useRef(null); //a pointer to the file input element
 
@@ -25,7 +32,7 @@ function PhotoUpload({gridSize}) {
             <button key={index} className='slots' onClick={() => handleSlotClick(index)}>+</button>
           ))}
         
-        <input type="file" accept="image/*" ref={fileInputRef} style={{display: 'none'}}/>
+        <input type="file" accept="image/*" onChange={handleFileSelect} ref={fileInputRef} style={{display: 'none'}}/>
         </div>
       </>
   );

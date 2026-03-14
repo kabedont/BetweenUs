@@ -114,3 +114,34 @@ function Square(){
 ### Why This Matters for File Upload
 
 We don't want the whole component to re-render just because we clicked a file input — that's why we use `useRef` to store the reference to the DOM element.
+
+### 3/14/26
+**📝 React Events Cheat Sheet**
+### 1️⃣ Understanding `event.target.files[0]`
+```jsx
+const file = event.target.files[0];
+if (!file) return;
+```
+- `event` — The event object from the input
+- `event.target` — The DOM element that triggered the event (the file input)
+- `event.target.files` — A list of selected files
+- `[0]` — Gets the first file (since we only allow one)
+- `if (!file) return;` — Exit if user canceled (no file selected)
+
+### 2️⃣ When Do You Use `event`?
+- What file was selected → `event.target.files[0]`
+- What user typed → `event.target.value`
+- Mouse position → `event.clientX, event.clientY`
+- Which key was pressed → `event.key`
+- Stop form refresh → `event.preventDefault()`
+
+Don't use event when you just need to know something happened:
+`<button onClick={() => console.log("clicked")}>`
+
+### 3️⃣ The Simple Rule
+- Use event when you need details about what happened.
+- Don't use it when you just need to know that it happened.
+
+### 4️⃣ Division of Labor: `event` vs `useState`
+- `event` -> Reach into the DOM and grab the data
+- `useState` -> Store that data in React's memory
