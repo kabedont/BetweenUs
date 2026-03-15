@@ -16,8 +16,12 @@ function PhotoUpload({gridSize}) {
   const handleFileSelect = (event) => {
     const file = event.target.files[0];
     if (!file) return;
-    console.log(`File selected: `, file);
-    console.log(`For Slot`, selectedSlot);
+
+    const imgUrl = URL.createObjectURL(file);
+    //create new array with the image URL at selected slot
+    const updatedPhotos = [...photos];
+    updatedPhotos[selectedSlot] = imgUrl;
+    setPhotos(updatedPhotos);
   }
   
   //making a ref
@@ -29,7 +33,13 @@ function PhotoUpload({gridSize}) {
         <h2>{totalSlots} pictures to upload</h2>
         <div className='photo-grid' style={{gridTemplateColumns: `repeat(${cols}, 1fr)`}}>
           {Array.from({length: totalSlots}).map((_, index) => (
-            <button key={index} className='slots' onClick={() => handleSlotClick(index)}>+</button>
+            <div key = {index} className='slot-container'>
+              {photos[index] ? ( 
+                <img src={photos[index]} alt={`Upload ${index+1}`} className='photo-image'/>
+              ) : (
+                <button className='slots' onClick={() => handleSlotClick(index)}>+</button>
+              )}
+            </div>
           ))}
         
         <input type="file" accept="image/*" onChange={handleFileSelect} ref={fileInputRef} style={{display: 'none'}}/>

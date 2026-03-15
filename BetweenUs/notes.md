@@ -145,3 +145,12 @@ Don't use event when you just need to know something happened:
 ### 4️⃣ Division of Labor: `event` vs `useState`
 - `event` -> Reach into the DOM and grab the data
 - `useState` -> Store that data in React's memory
+
+### 3/15/26
+**what i learned**
+```jsx
+const updatedPhotos = [...photos]; //creates brand new copy of photos array, stores that copy in a new variable
+updatedPhotos[selectedSlot] = imageUrl; //go to specific slot clicked, put image URL in it 
+setPhotos(updatedPhotos); //tells React: "Here's a new array", the copy with the image inserted
+```
+- Never mutate state directly. Always create a new copy and set state to that copy.
