@@ -30,7 +30,6 @@ function PhotoUpload({gridSize}) {
   //return function
   return (
       <>
-        <h2>{totalSlots} pictures to upload</h2>
         <div className='photo-grid' style={{gridTemplateColumns: `repeat(${cols}, 1fr)`}}>
           {Array.from({length: totalSlots}).map((_, index) => (
             <div key = {index} className='slot-container'>

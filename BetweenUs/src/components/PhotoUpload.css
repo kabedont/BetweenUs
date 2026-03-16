@@ -1,18 +1,30 @@
-.photo-grid{
-    display: grid;
-    padding: 10px;
+.photo-grid {
+    display: grid;    
+    width: 100%;
+    padding: 20px;
     max-width: 600px;
     margin: 0 auto;
 }
 
-.slots{
+.slot-container {
     width: 100%;
-    height: 0;
-    aspect-ratio: 1 / 1;
-    padding: 50px;
-    border: 2px solid #9CAF88;
+    aspect-ratio: 1 / 1;        
+    border: 2px solid #9CAF88; 
+    overflow: hidden;          
     background-color: #EDE7DF;
+    box-sizing: border-box; 
+    
+    /*keeps grid items strictly restrained*/
+    min-width: 0;
+    min-height: 0;
+}
 
+.slots {
+    width: 100%;
+    height: 100%;
+    border: none; 
+    background-color: transparent;
+    
     /*positioning the + sign*/
     display: flex;
     align-items: center;
@@ -22,13 +34,19 @@
     color: #2c2c2cc7;
 
     transition: all 0.1s ease;
+    margin: 0; 
+    padding: 0;
 }
 
-.slots:hover{
+.slots:hover {
     cursor: pointer;
     background-color: #e4ded7;
-    transform: scale(1.03);
-    border-color: #7c8c6c;
-    box-shadow: 0 2px 2px rgba(0,0,0,0.1);
     font-size: 1.6rem;
+}
+
+.photo-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;    
+    display: block;        
 }
