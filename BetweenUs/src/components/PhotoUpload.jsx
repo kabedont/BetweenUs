@@ -16,7 +16,6 @@ function PhotoUpload({gridSize}) {
   const handleFileSelect = (event) => {
     const file = event.target.files[0];
     if (!file) return;
-
     const imgUrl = URL.createObjectURL(file);
     //create new array with the image URL at selected slot
     const updatedPhotos = [...photos];
@@ -27,6 +26,17 @@ function PhotoUpload({gridSize}) {
   //making a ref
   const fileInputRef = useRef(null); //a pointer to the file input element
 
+  //hover functionality after image upload
+  const[hover, setHover] = useState(null);
+  const handleHover = (index) => {
+    setHover(index);
+    console.log(`Hovering over slot ${index}`);
+  }
+  const handleLeave = (index) => {
+    setHover(index);
+    console.log(`Hover ended`);
+  }
+
   //return function
   return (
       <>
@@ -34,13 +44,14 @@ function PhotoUpload({gridSize}) {
           {Array.from({length: totalSlots}).map((_, index) => (
             <div key = {index} className='slot-container'>
               {photos[index] ? ( 
-                <img src={photos[index]} alt={`Upload ${index+1}`} className='photo-image'/>
+                <div className='image-wrapper' onMouseEnter={() => handleHover(index)} onMouseLeave={() => handleLeave(index)}> 
+                  <img src={photos[index]} alt={`Upload ${index+1}`} className='photo-image'/>
+                </div>
               ) : (
                 <button className='slots' onClick={() => handleSlotClick(index)}>+</button>
               )}
             </div>
           ))}
-        
         <input type="file" accept="image/*" onChange={handleFileSelect} ref={fileInputRef} style={{display: 'none'}}/>
         </div>
       </>
