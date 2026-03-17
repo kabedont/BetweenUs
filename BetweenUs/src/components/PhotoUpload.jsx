@@ -32,8 +32,8 @@ function PhotoUpload({gridSize}) {
     setHover(index);
     console.log(`Hovering over slot ${index}`);
   }
-  const handleLeave = (index) => {
-    setHover(index);
+  const handleLeave = () => {
+    setHover(null);
     console.log(`Hover ended`);
   }
 
@@ -44,8 +44,14 @@ function PhotoUpload({gridSize}) {
           {Array.from({length: totalSlots}).map((_, index) => (
             <div key = {index} className='slot-container'>
               {photos[index] ? ( 
-                <div className='image-wrapper' onMouseEnter={() => handleHover(index)} onMouseLeave={() => handleLeave(index)}> 
+                <div className='image-wrapper' onMouseEnter={() => handleHover(index)} onMouseLeave={handleLeave}> 
                   <img src={photos[index]} alt={`Upload ${index+1}`} className='photo-image'/>
+                  {hover === index && (
+                    <div className='hover-menu'> 
+                      <button className='menu-btn'>📝</button>
+                      <button className='menu-btn'>🗑️</button>
+                    </div>
+                  )}
                 </div>
               ) : (
                 <button className='slots' onClick={() => handleSlotClick(index)}>+</button>
