@@ -56,3 +56,37 @@
     object-fit: cover;    
     display: block;        
 }
+
+.hover-menu{
+    position: absolute;
+    bottom: 8px;
+    left: 50%;                      /*puts left edge at center*/
+    transform: translateX(-50%);    /*moves it back by half its width, so menu's center aligns with container's center*/
+    display: flex;                  /*so menu's children (the buttons) sit side by side*/
+    gap: 8px;
+    background:rgba(0, 0, 0, 0.5);
+    padding: 4px 8px;
+    border-radius: 20px;
+    backdrop-filter: blur(4px);
+    z-index: 10;
+}
+
+.menu-btn{
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    color: #9CAF88;
+}
+
+.menu-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
