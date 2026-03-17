@@ -37,6 +37,13 @@ function PhotoUpload({gridSize}) {
     console.log(`Hover ended`);
   }
 
+  //delete button
+  const deleteImage = (index) => {
+    const copy = [...photos];
+    copy[index] = null;
+    setPhotos(copy);
+  }
+
   //return function
   return (
       <>
@@ -49,7 +56,7 @@ function PhotoUpload({gridSize}) {
                   {hover === index && (
                     <div className='hover-menu'> 
                       <button className='menu-btn'>📝</button>
-                      <button className='menu-btn'>🗑️</button>
+                      <button className='menu-btn' onClick={() => deleteImage(index)}>🗑️</button>
                     </div>
                   )}
                 </div>
