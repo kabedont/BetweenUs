@@ -44,6 +44,15 @@ function PhotoUpload({gridSize}) {
     setPhotos(copy);
   }
 
+  //add description button
+  const [description, setDescription] = useState(Array(totalSlots).fill(null));
+  const addDescription = (index) => {
+    const input = window.prompt("Enter description: ");
+    const desc_copy = [...description];
+    desc_copy[index] = input;
+    setDescription(desc_copy);
+  }
+
   //return function
   return (
       <>
@@ -55,7 +64,7 @@ function PhotoUpload({gridSize}) {
                   <img src={photos[index]} alt={`Upload ${index+1}`} className='photo-image'/>
                   {hover === index && (
                     <div className='hover-menu'> 
-                      <button className='menu-btn'>📝</button>
+                      <button className='menu-btn' onClick={() => addDescription(index)}>📝</button>
                       <button className='menu-btn' onClick={() => deleteImage(index)}>🗑️</button>
                     </div>
                   )}
