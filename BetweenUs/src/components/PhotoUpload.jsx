@@ -51,7 +51,6 @@ function PhotoUpload({gridSize}) {
     setLightboxIndex(index);
     setLightboxMode(mode);
   }
-  //add description
   const [description, setDescription] = useState(Array(totalSlots).fill(null));
 
 
@@ -81,22 +80,25 @@ function PhotoUpload({gridSize}) {
         <input type="file" accept="image/*" onChange={handleFileSelect} ref={fileInputRef} style={{display: 'none'}}/>
         </div>
         {lightboxIndex !== null && (
-          <div className='lightbox-overlay'>
-            <img src={photos[lightboxIndex]} className='lightbox-image'/>
-            <div className='description'>
-              {lightboxMode === 'edit' ? (
-                <textarea 
-                  placeholder='add a description...' 
-                  value={description[lightboxIndex] || ''}
-                  onChange={(e) => {
-                    const copy = [...description];
-                    copy[lightboxIndex] = e.target.value;
-                    setDescription(copy);
-                  }}
-                />
-              ):(
-                <p>{description[lightboxIndex] || "No description yet"}</p>
-              )}
+          <div className='lightbox-overlay' onClick={() => setLightboxIndex(null)}>
+            <div className='lightbox-content' onClick={(e) => e.stopPropagation}>
+              <img src={photos[lightboxIndex]} className='lightbox-image'/>
+              <button className='close-button' onClick={() => setLightboxIndex(null)}>X</button>
+              <div className='description'>
+                {lightboxMode === 'edit' ? (
+                  <textarea 
+                    placeholder='add a description...' 
+                    value={description[lightboxIndex] || ''}
+                    onChange={(e) => {
+                      const copy = [...description];
+                      copy[lightboxIndex] = e.target.value;
+                      setDescription(copy);
+                    }}
+                  />
+                ):(
+                  <p>{description[lightboxIndex] || "No description yet"}</p>
+                )}
+              </div>
             </div>
           </div>
         )}
