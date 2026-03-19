@@ -51,16 +51,9 @@ function PhotoUpload({gridSize}) {
     setLightboxIndex(index);
     setLightboxMode(mode);
   }
-
-  //add description button
+  //add description
   const [description, setDescription] = useState(Array(totalSlots).fill(null));
-  const addDescription = (index) => {
-    const input = window.prompt("Enter description: ");
-    const desc_copy = [...description];
-    desc_copy[index] = input;
-    setDescription(desc_copy);
-    if (!input) return;
-  }
+
 
   //return function
   return (
@@ -92,7 +85,15 @@ function PhotoUpload({gridSize}) {
             <img src={photos[lightboxIndex]} className='lightbox-image'/>
             <div className='description'>
               {lightboxMode === 'edit' ? (
-                <textarea placeholder='add a description...'/>
+                <textarea 
+                  placeholder='add a description...' 
+                  value={description[lightboxIndex] || ''}
+                  onChange={(e) => {
+                    const copy = [...description];
+                    copy[lightboxIndex] = e.target.value;
+                    setDescription(copy);
+                  }}
+                />
               ):(
                 <p>{description[lightboxIndex] || "No description yet"}</p>
               )}

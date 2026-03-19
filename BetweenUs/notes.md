@@ -154,3 +154,41 @@ updatedPhotos[selectedSlot] = imageUrl; //go to specific slot clicked, put image
 setPhotos(updatedPhotos); //tells React: "Here's a new array", the copy with the image inserted
 ```
 - Never mutate state directly. Always create a new copy and set state to that copy.
+
+### 3/16/26
+- A `<textarea>` is an HTML element used for **multi-line text input**. Think of it like `<input>`, but for longer text.
+**key attributes**
+- `placeholder` → shows hint text when empty
+    - Example: `placeholder="Add a description..."`
+- `value` → controls what text is inside
+    - Example: `value={description}`
+- `onChange` → runs when user types
+    - Example: `onChange={(e) => ...}`
+- `rows` → sets height (number of lines)
+    - Example: `rows={4}`
+- `disabled` → makes it read-only
+    - Example: `disabled={true}`
+
+🧠 What is e.target.value?
+- `e` = event object from `onChange`
+- `e.target` = the `<textarea>` element
+- `e.target.value` = current text inside it
+`(e) => setText(e.target.value)`
+👉 Meaning:
+"Take whatever is currently typed and save it to state."
+
+example using my case:
+```jsx
+<textarea
+  placeholder="Add a description..."
+  value={description[index] || ''}  //shows existing description or empty if none
+  onChange={(e) => {
+    const copy = [...description];  //creates a copy of the array (important in React)
+    copy[index] = e.target.value;   //updates the specific slot
+    setDescription(copy);           //saves it back to state
+  }}
+/>
+```
+
+💡 Key Idea
+- A controlled `<textarea>` means: the UI is always synced with React state
