@@ -81,13 +81,12 @@ function PhotoUpload({gridSize}) {
         </div>
         {lightboxIndex !== null && (
           <div className='lightbox-overlay' onClick={() => setLightboxIndex(null)}>
-            <div className='lightbox-content' onClick={(e) => e.stopPropagation}>
+            <div className='lightbox-content' onClick={(e) => e.stopPropagation()}>
               <img src={photos[lightboxIndex]} className='lightbox-image'/>
-              <button className='close-button' onClick={() => setLightboxIndex(null)}>X</button>
               <div className='description'>
                 {lightboxMode === 'edit' ? (
                   <textarea 
-                    placeholder='add a description...' 
+                    placeholder='add your description!' 
                     value={description[lightboxIndex] || ''}
                     onChange={(e) => {
                       const copy = [...description];
