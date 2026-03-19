@@ -44,6 +44,14 @@ function PhotoUpload({gridSize}) {
     setPhotos(copy);
   }
 
+  //lightbox
+  const[lightboxIndex, setLightboxIndex] = useState(null);
+  const[lightboxMode,setLightboxMode] = useState(null);
+  const openLightbox = (index, mode) => {
+    setLightboxIndex(index);
+    setLightboxMode(mode);
+  }
+
   //add description button
   const [description, setDescription] = useState(Array(totalSlots).fill(null));
   const addDescription = (index) => {
@@ -51,6 +59,7 @@ function PhotoUpload({gridSize}) {
     const desc_copy = [...description];
     desc_copy[index] = input;
     setDescription(desc_copy);
+    if (!input) return;
   }
 
   //return function
@@ -60,15 +69,17 @@ function PhotoUpload({gridSize}) {
           {Array.from({length: totalSlots}).map((_, index) => (
             <div key = {index} className='slot-container'>
               {photos[index] ? ( 
+                <>
                 <div className='image-wrapper' onMouseEnter={() => handleHover(index)} onMouseLeave={handleLeave}> 
                   <img src={photos[index]} alt={`Upload ${index+1}`} className='photo-image'/>
                   {hover === index && (
                     <div className='hover-menu'> 
-                      <button className='menu-btn' onClick={() => addDescription(index)}>📝</button>
+                      <button className='menu-btn' onClick={() => openLightbox(index,`edit`)}>📝</button>
                       <button className='menu-btn' onClick={() => deleteImage(index)}>🗑️</button>
                     </div>
                   )}
                 </div>
+                </>
               ) : (
                 <button className='slots' onClick={() => handleSlotClick(index)}>+</button>
               )}
@@ -76,6 +87,18 @@ function PhotoUpload({gridSize}) {
           ))}
         <input type="file" accept="image/*" onChange={handleFileSelect} ref={fileInputRef} style={{display: 'none'}}/>
         </div>
+        {lightboxIndex !== null && (
+          <div className='lightbox-overlay'>
+            <img src={photos[lightboxIndex]} className='lightbox-image'/>
+            <div className='description'>
+              {lightboxMode === 'edit' ? (
+                <textarea placeholder='add a description...'/>
+              ):(
+                <p>{description[lightboxIndex] || "No description yet"}</p>
+              )}
+            </div>
+          </div>
+        )}
       </>
   );
 }

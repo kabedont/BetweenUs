@@ -16,7 +16,7 @@
     width: 100%;
     aspect-ratio: 1 / 1;        
     border: 1.5px solid #9CAF88; 
-    overflow: hidden;          
+    overflow: visible;          
     background-color: #EDE7DF;
     box-sizing: border-box; 
     
@@ -87,6 +87,6 @@
     color: #9CAF88;
 }
 
-.menu-btn:hover {
-  background: rgba(255, 255, 255, 0.2);
+.menu-btn:hover{
+    background: rgba(255, 255, 255, 0.2);
 }
