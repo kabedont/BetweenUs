@@ -44,6 +44,11 @@ function PhotoUpload({gridSize}) {
     copy[index] = null;
     setPhotos(copy);
   }
+  const deleteDescription = (index) => {
+    const copy = [...description];
+    copy[index] = null;
+    setDescription(copy);
+  }
 
   //lightbox
   const[lightboxIndex, setLightboxIndex] = useState(null);
@@ -75,7 +80,7 @@ function PhotoUpload({gridSize}) {
                   {hover === index && (
                     <div className='hover-menu'> 
                       <button className='menu-btn' onClick={() => openLightbox(index,`edit`)}>📝</button>
-                      <button className='menu-btn' onClick={() => deleteImage(index)}>🗑️</button>
+                      <button className='menu-btn' onClick={() => {deleteImage(index); deleteDescription(index)}}>🗑️</button>
                     </div>
                   )}
                 </div>
