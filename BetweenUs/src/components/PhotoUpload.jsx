@@ -1,4 +1,4 @@
-import {useState, useRef} from 'react';
+import {useState, useRef, useEffect} from 'react';
 import './PhotoUpload.css';
 
 function PhotoUpload({gridSize}) {
@@ -25,6 +25,7 @@ function PhotoUpload({gridSize}) {
   
   //making a ref
   const fileInputRef = useRef(null); //a pointer to the file input element
+  const textareaRef = useRef(null);
 
   //hover functionality after image upload
   const[hover, setHover] = useState(null);
@@ -52,6 +53,13 @@ function PhotoUpload({gridSize}) {
     setLightboxMode(mode);
   }
   const [description, setDescription] = useState(Array(totalSlots).fill(null));
+
+  //focus on description immediately upon opening
+  useEffect(() => {
+    if (lightboxMode === 'edit' && lightboxIndex !==null) {
+      textareaRef.current?.focus();
+    }
+  }, [lightboxMode, lightboxIndex]);
 
 
   //return function
@@ -86,6 +94,7 @@ function PhotoUpload({gridSize}) {
               <div className='description'>
                 {lightboxMode === 'edit' ? (
                   <textarea 
+                    ref={textareaRef}
                     placeholder='add your description!' 
                     value={description[lightboxIndex] || ''}
                     onChange={(e) => {
