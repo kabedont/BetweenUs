@@ -13,10 +13,13 @@ function App(){
   }
 
   const [currentMode, setCurrentMode] = useState('edit');
+  const onToggleMode = () => {
+    setCurrentMode(currentMode === `edit` ? `view` : `edit`);
+  }
 
   return(
     <div className="App">
-      <Header />
+      <Header mode={currentMode} onToggle={onToggleMode}/>
         <div className="main-content">
           {currentScreen === 'setup' && (<GridSelection onConfirm={handleConfirm}/>)}
           {currentScreen === 'upload' && (<PhotoUpload gridSize={gridSize} mode={currentMode}/>)}
