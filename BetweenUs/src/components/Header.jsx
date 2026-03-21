@@ -5,8 +5,8 @@ function Header(){
         <nav className="navbar">
             <div className="logo"> <a href="/">Between Us</a></div>
             <ul className="nav-links">
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
+                <a>Current mode: </a>
+                <li><a href="/about">Share</a></li>
             </ul>
         </nav>   
     )

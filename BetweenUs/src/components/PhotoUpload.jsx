@@ -1,7 +1,7 @@
 import {useState, useRef, useEffect} from 'react';
 import './PhotoUpload.css';
 
-function PhotoUpload({gridSize}) {
+function PhotoUpload({gridSize, mode}) {
   //calculating total number of slots
   const [rows, cols] = gridSize.split('x').map(Number);
   const totalSlots = rows * cols;
@@ -77,7 +77,8 @@ function PhotoUpload({gridSize}) {
                 <>
                 <div className='image-wrapper' onMouseEnter={() => handleHover(index)} onMouseLeave={handleLeave}> 
                   <img src={photos[index]} alt={`Upload ${index+1}`} className='photo-image'/>
-                  {hover === index && (
+                  
+                  {hover === index && mode === `edit` && (
                     <div className='hover-menu'> 
                       <button className='menu-btn' onClick={() => openLightbox(index,`edit`)}>📝</button>
                       <button className='menu-btn' onClick={() => {deleteImage(index); deleteDescription(index)}}>🗑️</button>
