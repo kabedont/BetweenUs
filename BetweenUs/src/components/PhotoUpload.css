@@ -57,6 +57,10 @@
     display: block;        
 }
 
+.view-mode-image{
+    cursor: pointer;
+}
+
 .hover-menu{
     position: absolute;
     bottom: 8px;

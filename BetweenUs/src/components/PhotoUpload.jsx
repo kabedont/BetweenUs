@@ -76,7 +76,7 @@ function PhotoUpload({gridSize, mode}) {
               {photos[index] ? ( 
                 <>
                 <div className='image-wrapper' onMouseEnter={() => handleHover(index)} onMouseLeave={handleLeave}> 
-                  <img src={photos[index]} alt={`Upload ${index+1}`} onClick={() => mode ==='view' ? openLightbox(index, 'view') : null} className='photo-image'/>
+                  <img src={photos[index]} alt={`Upload ${index+1}`} onClick={() => mode ==='view' ? openLightbox(index, 'view') : null} className={mode ==='edit'? 'photo-image' : 'photo-image view-mode-image'}/>
                   
                   {hover === index && mode === `edit` && (
                     <div className='hover-menu'> 
