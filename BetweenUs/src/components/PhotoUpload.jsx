@@ -87,7 +87,11 @@ function PhotoUpload({gridSize, mode}) {
                 </div>
                 </>
               ) : (
-                <button className='slots' onClick={() => handleSlotClick(index)}>+</button>
+                <>
+                {mode === `edit` && (
+                  <button className='slots' onClick={() => handleSlotClick(index)}>+</button>
+                )}
+                </>
               )}
             </div>
           ))}
@@ -110,7 +114,7 @@ function PhotoUpload({gridSize, mode}) {
                     }}
                   />
                 ):(
-                  <p>{description[lightboxIndex] || "No description yet"}</p>
+                  <p>{description[lightboxIndex] || ""}</p>
                 )}
               </div>
             </div>
