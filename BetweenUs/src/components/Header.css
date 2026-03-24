@@ -60,3 +60,19 @@
     background-color: #ffffffd4;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
 }
+
+.share-btn{
+    background: #e4ded7;
+    border: none;
+    border-radius: 999px;
+    padding: 6px 12px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    color: #2c2c2c;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.share-btn:hover{
+    background-color: #d6cec4;
+}
