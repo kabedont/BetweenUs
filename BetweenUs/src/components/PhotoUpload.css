@@ -124,16 +124,16 @@
 }
 
 .description textarea {
-  width: 100%;
-  margin-top: 11px;
-  padding: 0;  
-  border: none; 
-  background: transparent; 
-  font-family: 'Inter', sans-serif;
-  font-size: 0.95rem;
-  line-height: 1.5;
-  color: #2c2c2c;
-  resize: none;  
-  outline: none;  
-  overflow: auto;  
+    width: 100%;
+    margin-top: 11px;
+    padding: 0;  
+    border: none; 
+    background: transparent; 
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #2c2c2c;
+    resize: none;  
+    outline: none;  
+    overflow: auto;  
 }

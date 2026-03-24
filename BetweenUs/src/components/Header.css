@@ -12,14 +12,14 @@
 }
 
 .logo a {
-  font-family: 'Playfair Display', serif;
-  text-decoration: none;
-  font-size: 1.5rem;
-  font-weight: bold;    
-  color: #2C2C2C;
+    font-family: 'Playfair Display', serif;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;    
+    color: #2C2C2C;
 }
 
-.nav-links{
+.options{
     display: flex;
     list-style: none;
     gap: 2rem;
@@ -27,11 +27,7 @@
     padding: 0.25rem;
 }
 
-.nav-links a{
+.options a{
     text-decoration: none;
     font-size: 1.1rem;
-}
-
-.nav-links a:hover{
-    text-decoration: underline;
 }
