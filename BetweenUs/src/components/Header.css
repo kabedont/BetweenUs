@@ -3,7 +3,7 @@
 .navbar{
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     width: 100%;
     box-sizing: border-box; 
     padding: 1rem 3rem;
@@ -15,7 +15,7 @@
     font-family: 'Playfair Display', serif;
     text-decoration: none;
     font-size: 1.5rem;
-    font-weight: bold;    
+    font-weight: 500;    
     color: #2C2C2C;
 }
 
@@ -30,4 +30,33 @@
 .options a{
     text-decoration: none;
     font-size: 1.1rem;
+}
+
+.mode-toggle{
+    background: #e4ded7;
+    border-radius: 999px;
+    display: flex;
+    gap: 4px;
+    padding: 3px;
+}
+
+.mode-btn{
+    border: none;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: transparent;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    color: #2c2c2c;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.mode-btn:hover{
+    background-color: #d6cec4;
+}
+
+.mode-btn.active{
+    background-color: #ffffffd4;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
 }
