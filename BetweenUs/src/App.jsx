@@ -19,7 +19,7 @@ function App(){
 
   return(
     <div className="App">
-      <Header mode={currentMode} onModeChange={setMode}/>
+      <Header mode={currentMode} onModeChange={setMode} showControls={currentScreen === 'upload'} />
         <div className="main-content">
           {currentScreen === 'setup' && (<GridSelection onConfirm={handleConfirm}/>)}
           {currentScreen === 'upload' && (<PhotoUpload gridSize={gridSize} mode={currentMode}/>)}
