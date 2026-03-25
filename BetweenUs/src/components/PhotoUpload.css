@@ -15,7 +15,7 @@
 .slot-container {
     width: 100%;
     aspect-ratio: 1 / 1;        
-    border: 1.5px solid #9CAF88; 
+    border: 1.5px solid #d8d2c8; 
     overflow: visible;          
     background-color: #EDE7DF;
     box-sizing: border-box; 
@@ -68,7 +68,7 @@
     transform: translateX(-50%);    /*moves it back by half its width, so menu's center aligns with container's center*/
     display: flex;                  /*so menu's children (the buttons) sit side by side*/
     gap: 8px;
-    background:rgba(0, 0, 0, 0.5);
+    background: rgba(44, 44, 44, 0.6);;
     padding: 4px 8px;
     border-radius: 20px;
     backdrop-filter: blur(4px);
@@ -101,7 +101,7 @@
     bottom: 0;
     right: 0;
     left: 0;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(44, 44, 44, 0.65);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -109,23 +109,45 @@
 }
 
 .lightbox-content{
-    background: #e4ded7;
-    padding: 20px;
-    border-radius: 1px;
-    max-width: 65%;
-    max-height: 75%;
+    background: #EDE7DF;
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    max-width: 70%;
+    max-height: 80%;
     position: relative;
+    overflow: auto; 
+    min-width: 0; 
+    max-width: 600px; 
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 .lightbox-image{
     max-width: 100%;
     max-height: 60vh;
-    object-fit: cover;
+    object-fit: contain;
 }
 
+.description{
+    margin: 0;
+    padding: 0;
+}
+
+/*for edit mode*/
 .description textarea {
     width: 100%;
-    margin-top: 11px;
+    margin-top: 8px;
     padding: 0;  
     border: none; 
     background: transparent; 
@@ -135,5 +157,18 @@
     color: #2c2c2c;
     resize: none;  
     outline: none;  
-    overflow: auto;  
+}
+
+/*for view mode*/
+.description p{
+    max-width: 100%;
+    margin-top: 8px;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #2c2c2c;
+    text-align: center;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
