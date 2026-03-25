@@ -15,7 +15,7 @@
 .slot-container {
     width: 100%;
     aspect-ratio: 1 / 1;        
-    border: 1.5px solid #d8d2c8; 
+    border: 1.25px solid #d8d2c8; 
     overflow: visible;          
     background-color: #EDE7DF;
     box-sizing: border-box; 
@@ -160,15 +160,17 @@
 }
 
 /*for view mode*/
-.description p{
-    max-width: 100%;
-    margin-top: 8px;
-    padding: 0;
+.view-textarea {
+    width: 100%;
+    border: none;
+    background: transparent;
     font-family: 'Inter', sans-serif;
     font-size: 0.95rem;
+    text-align: center;
     line-height: 1.5;
     color: #2c2c2c;
-    text-align: center;
-    word-break: break-word;
-    overflow-wrap: break-word;
+    resize: none;
+    outline: none;
+    user-select: none;      /*prevents text selection*/
+    caret-color: transparent;  /* hides the blinking cursor */
 }

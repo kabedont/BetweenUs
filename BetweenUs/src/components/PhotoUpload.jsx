@@ -114,7 +114,12 @@ function PhotoUpload({gridSize, mode}) {
                     }}
                   />
                 ):(
-                  <p>{description[lightboxIndex] || ""}</p>
+                  <textarea
+                    value={description[lightboxIndex] || ""}
+                    readOnly
+                    className="view-textarea"
+                    tabIndex={-1}
+                  />
                 )}
               </div>
             </div>
