@@ -192,3 +192,40 @@ example using my case:
 
 💡 Key Idea
 - A controlled `<textarea>` means: the UI is always synced with React state
+
+
+### 3/28/26
+**`async` and `await` functions**
+- What is `async`?
+    - `async` makes a function "asynchronous" — meaning it can take time to finish
+    - Think of it like ordering food: you order, get a number, and wait while food is prepared
+
+- What is `await`?
+    - `await` pauses the function until something completes
+    - It only works inside an async function
+
+- When to use `async`/`await`:
+    - Uploading files (takes time)
+    - Fetching data from a server
+    - Saving to a database
+    - Any task that involves waiting for a response
+
+- Why it matters:
+    - Without `async`, JavaScript would try to use the result before it exists
+    - With `async`, it waits patiently for the result to come back
+
+Example:
+```jsx
+async function uploadImage(file) {
+const result = await supabase.storage.upload(file)
+return result
+}
+```
+
+- What's happening:
+    - `async` marks the function as one that can wait
+    - `await` tells it: "pause here until upload finishes"
+    - After upload completes, the function continues and returns the result
+
+- Simple rule:
+    - If your code does something that takes time (like talking to a server), use `async`/`await`.
