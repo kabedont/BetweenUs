@@ -1,5 +1,6 @@
 import {useState, useRef, useEffect} from 'react';
 import './PhotoUpload.css';
+import uploadImage from '../uploadImage';
 
 function PhotoUpload({gridSize, mode}) {
   //calculating total number of slots
@@ -13,10 +14,10 @@ function PhotoUpload({gridSize, mode}) {
     setSelectedSlot(index);         //remember which slot
     fileInputRef.current.click();   //open file picker
   }
-  const handleFileSelect = (event) => {
+  const handleFileSelect = async (event) => {
     const file = event.target.files[0];
     if (!file) return;
-    const imgUrl = URL.createObjectURL(file);
+    const imgUrl = await uploadImage(file);
     //create new array with the image URL at selected slot
     const updatedPhotos = [...photos];
     updatedPhotos[selectedSlot] = imgUrl;
