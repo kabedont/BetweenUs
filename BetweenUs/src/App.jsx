@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import Header from './components/Header.jsx'
 import GridSelection from './components/GridSelection.jsx'
 import PhotoUpload from './components/PhotoUpload.jsx'
@@ -8,7 +8,6 @@ import './App.css'
 
 function App(){
   const [gridSize, setGridSize] = useState(null);
-  const [currentScreen, setCurrentScreen] = useState('setup');
   const [photos, setPhotos] = useState([]);
   const [description, setDescription] = useState([]);
   const [rows, setRows] = useState(0);

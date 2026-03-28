@@ -1,8 +1,10 @@
 import {useState} from 'react';
+import {useNavigate} from 'react-router-dom';
 import './GridSelection.css';
 
 function GridSelection({onConfirm}){
     const [grid, setGrid] = useState(null)
+    const navigate = useNavigate();
     return(
         <>
         <h2 className="question">select your grid!</h2>
@@ -23,7 +25,7 @@ function GridSelection({onConfirm}){
         
         <p>selected grid: {grid || "none"}</p>
 
-        <button className="confirm" onClick={() => onConfirm(grid)} disabled={!grid}>confirm</button> 
+        <button className="confirm" onClick={() => {onConfirm(grid); navigate('/upload');}} disabled={!grid}>confirm</button> 
         </>
     )
 }
