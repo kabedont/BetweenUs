@@ -32,8 +32,10 @@ function App(){
   }
 
   const handleShare = async () => {
-    if (!gridSize || !photos.length){
-      alert("No gallery to share yet!")
+    const hasPhotos = photos.some(photo => photo !== null);
+
+    if (!gridSize || !hasPhotos){
+      alert("Please add at least one photo first!")
       return
     }
 
