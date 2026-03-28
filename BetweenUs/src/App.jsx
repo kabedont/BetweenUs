@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Header from './components/Header.jsx'
 import GridSelection from './components/GridSelection.jsx'
 import PhotoUpload from './components/PhotoUpload.jsx'
+import saveGallery from 'saveGallery.js'
 import './App.css'
 
 function App(){
@@ -28,6 +29,24 @@ function App(){
     setPhotos(initialPhotos);
     setDescription(initialDescription);
     setCurrentScreen('upload'); //switch to upload screen
+  }
+
+  const handleShare = async () => {
+    if (!gridSize || !photos.length){
+      alert("No gallery to share yet!")
+      return
+    }
+
+    const galleryId = await saveGallery(gridSize, photos, description)
+
+    if(!galleryId){
+      alert("Failed to save gallery")
+      return
+    }
+
+    const shareLink = `${window.location.origin}/gallery/${galleryId}`
+    await navigator.clipboard.writeText(shareLink)
+    alert(`Link copied: ${shareLink}`)
   }
 
   const [currentMode, setCurrentMode] = useState('edit');
