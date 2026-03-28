@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header.jsx'
 import GridSelection from './components/GridSelection.jsx'
 import PhotoUpload from './components/PhotoUpload.jsx'
@@ -57,25 +58,32 @@ function App(){
   }
 
   return(
-    <div className="App">
-      <Header mode={currentMode} onModeChange={setMode} showControls={currentScreen === 'upload'} onShare={handleShare}/>
-        <div className="main-content">
-          {currentScreen === 'setup' && (<GridSelection onConfirm={handleConfirm}/>)}
-          {currentScreen === 'upload' && (
-            <PhotoUpload 
-              gridSize={gridSize} 
-              mode={currentMode}
-              rows={rows}
-              cols={cols}
-              totalSlots={totalSlots}
-              photos={photos}
-              setPhotos={setPhotos}
-              description={description}
-              setDescription={setDescription}
-            />
-          )}
-        </div>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Header mode={currentMode} onModeChange={setMode} showControls={currentScreen === 'upload'} onShare={handleShare}/>
+          <div className="main-content">
+            <Routes>
+              <Route path="/" element={<GridSelection onConfirm={handleConfirm}/>}/>
+              <Route 
+                path="/upload" 
+                element={
+                  <PhotoUpload 
+                    gridSize={gridSize} 
+                    mode={currentMode}
+                    rows={rows}
+                    cols={cols}
+                    totalSlots={totalSlots}
+                    photos={photos}
+                    setPhotos={setPhotos}
+                    description={description}
+                    setDescription={setDescription}
+                  />
+                }
+              />
+            </Routes>
+          </div>
+      </div>
+    </BrowserRouter>
   );
 }
 
