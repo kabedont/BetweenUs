@@ -7,8 +7,26 @@ import './App.css'
 function App(){
   const [gridSize, setGridSize] = useState(null);
   const [currentScreen, setCurrentScreen] = useState('setup');
+  const [photos, setPhotos] = useState([]);
+  const [description, setDescription] = useState([]);
+  const [rows, setRows] = useState(0);
+  const [cols, setCols] = useState(0);
+  const [totalSlots, setTotalSlots] = useState(0);
+
   const handleConfirm = (size) => {
+    //calculating total number of slots
+    const [rows, cols] = size.split('x').map(Number);
+    const totalSlots = rows * cols;
+    setRows(rows);
+    setCols(cols);
+    setTotalSlots(totalSlots);
+
+    const initialPhotos = Array(totalSlots).fill(null);
+    const initialDescription = Array(totalSlots).fill(null);
+
     setGridSize(size); //save the picked size
+    setPhotos(initialPhotos);
+    setDescription(initialDescription);
     setCurrentScreen('upload'); //switch to upload screen
   }
 
@@ -22,7 +40,19 @@ function App(){
       <Header mode={currentMode} onModeChange={setMode} showControls={currentScreen === 'upload'} />
         <div className="main-content">
           {currentScreen === 'setup' && (<GridSelection onConfirm={handleConfirm}/>)}
-          {currentScreen === 'upload' && (<PhotoUpload gridSize={gridSize} mode={currentMode}/>)}
+          {currentScreen === 'upload' && (
+            <PhotoUpload 
+              gridSize={gridSize} 
+              mode={currentMode}
+              rows={rows}
+              cols={cols}
+              totalSlots={totalSlots}
+              photos={photos}
+              setPhotos={setPhotos}
+              description={description}
+              setDescription={setDescription}
+            />
+          )}
         </div>
     </div>
   );

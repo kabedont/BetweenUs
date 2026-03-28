@@ -2,13 +2,8 @@ import {useState, useRef, useEffect} from 'react';
 import './PhotoUpload.css';
 import uploadImage from '../uploadImage';
 
-function PhotoUpload({gridSize, mode}) {
-  //calculating total number of slots
-  const [rows, cols] = gridSize.split('x').map(Number);
-  const totalSlots = rows * cols;
-
+function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos, description, setDescription}) {
   //uploaded pictures
-  const [photos, setPhotos] = useState(Array(totalSlots).fill(null));
   const [selectedSlot,setSelectedSlot] = useState(null); //remember clicked slot
   const handleSlotClick = (index) => {
     setSelectedSlot(index);         //remember which slot
@@ -58,7 +53,6 @@ function PhotoUpload({gridSize, mode}) {
     setLightboxIndex(index);
     setLightboxMode(mode);
   }
-  const [description, setDescription] = useState(Array(totalSlots).fill(null));
 
   //focus on description immediately upon opening
   useEffect(() => {
