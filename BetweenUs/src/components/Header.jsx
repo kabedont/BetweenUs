@@ -1,6 +1,6 @@
 import './Header.css';
 
-function Header({mode, onModeChange, showControls}){
+function Header({mode, onModeChange, showControls, onShare}){
     return(
         <nav className="navbar">
             <div className="logo"> <a href="/">Between Us</a></div>
@@ -11,7 +11,7 @@ function Header({mode, onModeChange, showControls}){
                 <button className={mode === 'edit' ? 'mode-btn active' : 'mode-btn'} onClick={() => onModeChange('edit')}>edit</button>
                 <button className={mode === 'view' ? 'mode-btn active' : 'mode-btn'} onClick={() => onModeChange('view')}>view</button>
                 </div>
-                <button className="share-btn">share</button>
+                <button className="share-btn" onClick={onShare}>share</button>
                 </>
                 )}
             </ul>

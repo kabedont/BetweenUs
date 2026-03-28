@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Header from './components/Header.jsx'
 import GridSelection from './components/GridSelection.jsx'
 import PhotoUpload from './components/PhotoUpload.jsx'
-import saveGallery from 'saveGallery.js'
+import saveGallery from './saveGallery.js'
 import './App.css'
 
 function App(){
@@ -56,7 +56,7 @@ function App(){
 
   return(
     <div className="App">
-      <Header mode={currentMode} onModeChange={setMode} showControls={currentScreen === 'upload'} />
+      <Header mode={currentMode} onModeChange={setMode} showControls={currentScreen === 'upload'} onShare={handleShare}/>
         <div className="main-content">
           {currentScreen === 'setup' && (<GridSelection onConfirm={handleConfirm}/>)}
           {currentScreen === 'upload' && (
