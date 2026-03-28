@@ -4,6 +4,7 @@ import Header from './components/Header.jsx'
 import GridSelection from './components/GridSelection.jsx'
 import PhotoUpload from './components/PhotoUpload.jsx'
 import saveGallery from './saveGallery.js'
+import GalleryView from './components/GalleryView.jsx';
 import './App.css'
 
 function App(){
@@ -28,7 +29,6 @@ function App(){
     setGridSize(size); //save the picked size
     setPhotos(initialPhotos);
     setDescription(initialDescription);
-    setCurrentScreen('upload'); //switch to upload screen
   }
 
   const handleShare = async () => {
@@ -59,7 +59,7 @@ function App(){
   return(
     <BrowserRouter>
       <div className="App">
-        <Header mode={currentMode} onModeChange={setMode} showControls={currentScreen === 'upload'} onShare={handleShare}/>
+        <Header mode={currentMode} onModeChange={setMode} showControls={true} onShare={handleShare}/>
           <div className="main-content">
             <Routes>
               <Route path="/" element={<GridSelection onConfirm={handleConfirm}/>}/>
@@ -79,6 +79,7 @@ function App(){
                   />
                 }
               />
+              <Route path="/gallery/:id" element={<GalleryView />}/>
             </Routes>
           </div>
       </div>
