@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header.jsx'
 import GridSelection from './components/GridSelection.jsx'
 import PhotoUpload from './components/PhotoUpload.jsx'
@@ -7,16 +7,19 @@ import saveGallery from './saveGallery.js'
 import GalleryView from './components/GalleryView.jsx';
 import './App.css'
 
-function App(){
+function AppContent() {
+  const location = useLocation();
+  const isGalleryView = location.pathname.startsWith('/gallery');
+
   const [gridSize, setGridSize] = useState(null);
   const [photos, setPhotos] = useState([]);
   const [description, setDescription] = useState([]);
   const [rows, setRows] = useState(0);
   const [cols, setCols] = useState(0);
   const [totalSlots, setTotalSlots] = useState(0);
+  const [currentMode, setCurrentMode] = useState('edit');
 
   const handleConfirm = (size) => {
-    //calculating total number of slots
     const [rows, cols] = size.split('x').map(Number);
     const totalSlots = rows * cols;
     setRows(rows);
@@ -26,7 +29,7 @@ function App(){
     const initialPhotos = Array(totalSlots).fill(null);
     const initialDescription = Array(totalSlots).fill(null);
 
-    setGridSize(size); //save the picked size
+    setGridSize(size);
     setPhotos(initialPhotos);
     setDescription(initialDescription);
   }
@@ -51,38 +54,43 @@ function App(){
     alert(`Link copied: ${shareLink}`)
   }
 
-  const [currentMode, setCurrentMode] = useState('edit');
   const setMode = (newMode) => {
     setCurrentMode(newMode);
   }
 
-  return(
-    <BrowserRouter>
-      <div className="App">
-        <Header mode={currentMode} onModeChange={setMode} showControls={true} onShare={handleShare}/>
-          <div className="main-content">
-            <Routes>
-              <Route path="/" element={<GridSelection onConfirm={handleConfirm}/>}/>
-              <Route 
-                path="/upload" 
-                element={
-                  <PhotoUpload 
-                    gridSize={gridSize} 
-                    mode={currentMode}
-                    rows={rows}
-                    cols={cols}
-                    totalSlots={totalSlots}
-                    photos={photos}
-                    setPhotos={setPhotos}
-                    description={description}
-                    setDescription={setDescription}
-                  />
-                }
+  return (
+    <div className="App">
+      <Header mode={currentMode} onModeChange={setMode} showControls={!isGalleryView} onShare={handleShare}/>
+      <div className="main-content">
+        <Routes>
+          <Route path="/" element={<GridSelection onConfirm={handleConfirm}/>}/>
+          <Route 
+            path="/upload" 
+            element={
+              <PhotoUpload 
+                gridSize={gridSize} 
+                mode={currentMode}
+                rows={rows}
+                cols={cols}
+                totalSlots={totalSlots}
+                photos={photos}
+                setPhotos={setPhotos}
+                description={description}
+                setDescription={setDescription}
               />
-              <Route path="/gallery/:id" element={<GalleryView />}/>
-            </Routes>
-          </div>
+            }
+          />
+          <Route path="/gallery/:id" element={<GalleryView />}/>
+        </Routes>
       </div>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <AppContent />
     </BrowserRouter>
   );
 }
