@@ -15,7 +15,7 @@ A web app where users can create and share personalized photo galleries with cap
 - Vercel (deployment)
 
 ## Live Demo
-https://between-us-rust.vercel.app/
+https://betweenus-gallery.vercel.app
 
 ## How it works
 1. Create a gallery
