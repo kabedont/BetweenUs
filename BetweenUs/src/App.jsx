@@ -60,7 +60,7 @@ function AppContent() {
 
   return (
     <div className="App">
-      <Header mode={currentMode} onModeChange={setMode} showControls={!isGalleryView} onShare={handleShare}/>
+      <Header mode={currentMode} onModeChange={setMode} showControls={location.pathname==='/upload'} onShare={handleShare}/>
       <div className="main-content">
         <Routes>
           <Route path="/" element={<GridSelection onConfirm={handleConfirm}/>}/>
