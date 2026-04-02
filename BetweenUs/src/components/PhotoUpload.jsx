@@ -92,7 +92,7 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
                 <>
                 {mode === `edit` && (
                   uploadingSlots[index] ? (
-                    <div className='uploading-spinner'>⏳</div>
+                    <div className='uploading-spinner'>⟳</div>
                   ) : (
                   <button className='slots' onClick={() => handleSlotClick(index)}>+</button>
                   )
