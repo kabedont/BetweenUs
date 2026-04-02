@@ -4,7 +4,8 @@ import uploadImage from '../uploadImage';
 
 function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos, description, setDescription}) {
   //uploaded pictures
-  const [selectedSlot,setSelectedSlot] = useState(null); //remember clicked slot
+  const [selectedSlot, setSelectedSlot] = useState(null); //remember clicked slot
+  const [uploadingSlots, setUploadingSlots] = useState({}); //remember if slots are uploading
   const handleSlotClick = (index) => {
     setSelectedSlot(index);         //remember which slot
     fileInputRef.current.click();   //open file picker
@@ -12,7 +13,13 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
   const handleFileSelect = async (event) => {
     const file = event.target.files[0];
     if (!file) return;
+
+    setUploadingSlots(prev => ({...prev, [selectedSlot]: true}));   //slot marked as 'uploading' 
+
     const imgUrl = await uploadImage(file);
+
+    setUploadingSlots(prev => ({...prev, [selectedSlot]: false}));  //slot marked as 'done'
+
     //create new array with the image URL at selected slot
     const updatedPhotos = [...photos];
     updatedPhotos[selectedSlot] = imgUrl;
@@ -84,7 +91,11 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
               ) : (
                 <>
                 {mode === `edit` && (
+                  uploadingSlots[index] ? (
+                    <div className='uploading-spinner'>⏳</div>
+                  ) : (
                   <button className='slots' onClick={() => handleSlotClick(index)}>+</button>
+                  )
                 )}
                 </>
               )}
