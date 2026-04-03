@@ -1,4 +1,5 @@
 import {useState, useRef, useEffect} from 'react';
+import {supabase} from '../supabaseClient';
 import './PhotoUpload.css';
 import uploadImage from '../uploadImage';
 
@@ -53,6 +54,18 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
     setDescription(copy);
   }
 
+  //delete from supabase
+  const deleteFromStorage = async (publicUrl) => {
+    const fileName = publicUrl.split('/').pop();
+    const {error} = await supabase
+      .storage
+      .from('galleries')
+      .remove([fileName]);
+    if (error) {
+      console.error("Failed to delete from storage:", error);
+    }
+  }
+
   //lightbox
   const[lightboxIndex, setLightboxIndex] = useState(null);
   const[lightboxMode,setLightboxMode] = useState(null);
@@ -83,7 +96,7 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
                   {hover === index && mode === `edit` && (
                     <div className='hover-menu'> 
                       <button className='menu-btn' onClick={() => openLightbox(index,`edit`)}>📝</button>
-                      <button className='menu-btn' onClick={() => {deleteImage(index); deleteDescription(index)}}>🗑️</button>
+                      <button className='menu-btn' onClick={async () => {await deleteFromStorage(photos[index]); deleteImage(index); deleteDescription(index)}}>🗑️</button>
                     </div>
                   )}
                 </div>
