@@ -63,6 +63,10 @@ function AppContent() {
     setIsExpiryModalOpen(true);
   }
 
+  const closeExpirymodal = () => {
+    setIsExpiryModalOpen(false);
+  }
+
   return (
     <div className="App">
       <Header 
@@ -88,6 +92,8 @@ function AppContent() {
                 setPhotos={setPhotos}
                 description={description}
                 setDescription={setDescription}
+                isExpiryModalOpen={isExpiryModalOpen}
+                closeExpiryModal={closeExpirymodal}
               />
             }
           />
