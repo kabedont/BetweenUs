@@ -65,7 +65,13 @@ function AppContent() {
 
   return (
     <div className="App">
-      <Header mode={currentMode} onModeChange={setMode} showControls={location.pathname==='/upload'} onShare={handleShare}/>
+      <Header 
+        mode={currentMode} 
+        onModeChange={setMode} 
+        showControls={location.pathname==='/upload'} 
+        onShare={handleShare}
+        onShareClick={openExpiryModal}
+      />
       <div className="main-content">
         <Routes>
           <Route path="/" element={<GridSelection onConfirm={handleConfirm}/>}/>
