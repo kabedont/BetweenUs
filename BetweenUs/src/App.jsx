@@ -18,6 +18,7 @@ function AppContent() {
   const [cols, setCols] = useState(0);
   const [totalSlots, setTotalSlots] = useState(0);
   const [currentMode, setCurrentMode] = useState('edit');
+  const [isExpiryModalOpen, setIsExpiryModalOpen] = useState(null);
 
   const handleConfirm = (size) => {
     const [rows, cols] = size.split('x').map(Number);
@@ -56,6 +57,10 @@ function AppContent() {
 
   const setMode = (newMode) => {
     setCurrentMode(newMode);
+  }
+
+  const openExpiryModal = () => {
+    setIsExpiryModalOpen(true);
   }
 
   return (
