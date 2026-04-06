@@ -66,6 +66,9 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
     }
   }
 
+  //share button
+  const[selectedExpiry, setSelectedExpiry] = useState(30);
+
   //lightbox
   const[lightboxIndex, setLightboxIndex] = useState(null);
   const[lightboxMode,setLightboxMode] = useState(null);
@@ -144,6 +147,23 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
             </div>
           </div>
         )}
+        {isExpiryModalOpen &&
+          <>
+          <div className='modal-overlay' onClick = {() => closeExpiryModal}>
+            <div className='modal-content' onClick = {(e) => e.stopPropagation()}>
+              <div className='modal-title'>share your gallery</div>
+              <div className='modal-question'>how long should it last?</div>
+              <div className='modal-choices'>
+                <button className='choice'>7 days</button>
+                <button className='choice'>30 days</button>
+                <button className='choice'>never</button>
+              </div>
+              <button className='modal-cancel' onClick = {() => closeExpiryModal}>cancel</button>
+              <button className='modal-generatelink'>generate link</button>
+            </div>
+          </div>
+          </>
+          }
       </>
   );
 }
