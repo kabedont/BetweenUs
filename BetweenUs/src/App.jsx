@@ -35,7 +35,7 @@ function AppContent() {
     setDescription(initialDescription);
   }
 
-  const handleShare = async () => {
+  const handleShare = async (expiryDays) => {
     const hasPhotos = photos.some(photo => photo !== null);
 
     if (!gridSize || !hasPhotos){
@@ -43,7 +43,7 @@ function AppContent() {
       return
     }
 
-    const galleryId = await saveGallery(gridSize, photos, description)
+    const galleryId = await saveGallery(gridSize, photos, description, expiryDays)
 
     if(!galleryId){
       alert("Failed to save gallery")

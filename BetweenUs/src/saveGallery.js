@@ -1,6 +1,6 @@
 import {supabase} from './supabaseClient'
 
-async function saveGallery(gridSize, imageUrls, descriptions){
+async function saveGallery(gridSize, imageUrls, descriptions, expiryDays){
     const{data, error} = await supabase
         .from('galleries')
         .insert([{grid_size: gridSize, image_urls: imageUrls, descriptions: descriptions}])
