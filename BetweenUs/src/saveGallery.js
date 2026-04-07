@@ -10,6 +10,14 @@ async function saveGallery(gridSize, imageUrls, descriptions, expiryDays){
         console.error("Error saving gallery: ", error)
         return null
     }
+
+    let expires_at = null;
+    if (expires_at !== null && expires_at > 0){
+        const expiryDate = new Date();  //gets current time
+        expiryDate.setDate(expiryDate.getDate() + expiryDays)
+        expires_at = expiryDate.toISOString();  //formats for supabase
+    }
+
     return data[0].id //returns unique gallery ID
 }
 
