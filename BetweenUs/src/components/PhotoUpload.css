@@ -196,3 +196,15 @@
     user-select: none;      /*prevents text selection*/
     caret-color: transparent;  /* hides the blinking cursor */
 }
+
+/*SHARE-MODAL*/
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 700;
+    background-color: rgba(44, 44, 44, 0.65);
+}
