@@ -68,7 +68,6 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
 
   //share button
   const[selectedExpiry, setSelectedExpiry] = useState(30);
-  
 
   //lightbox
   const[lightboxIndex, setLightboxIndex] = useState(null);
@@ -155,9 +154,9 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
               <div className='modal-title'>share your gallery</div>
               <div className='modal-question'>how long should it last?</div>
               <div className='modal-choices'>
-                <button className='choice' onClick = {() => setSelectedExpiry(7)}>7 days</button>
-                <button className='choice' onClick = {() => setSelectedExpiry(30)}>30 days</button>
-                <button className='choice' onClick = {() => setSelectedExpiry(null)}>never</button>
+                <button className={`choice ${selectedExpiry === 7? 'selected' : ''}`} onClick = {() => setSelectedExpiry(7)}>7 days</button>
+                <button className={`choice ${selectedExpiry === 30? 'selected' : ''}`} onClick = {() => setSelectedExpiry(30)}>30 days</button>
+                <button className={`choice ${selectedExpiry === null? 'selected' : ''}`} onClick = {() => setSelectedExpiry(null)}>never</button>
               </div>
               <button className='modal-cancel' onClick = {() => closeExpiryModal}>cancel</button>
               <button className='modal-generate-link' onClick = {() => {handleShare(selectedExpiry); closeExpiryModal();}}>generate link</button>
