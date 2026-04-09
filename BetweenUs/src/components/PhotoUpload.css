@@ -240,3 +240,8 @@
 .choice:hover {
     background-color: #e8e0d5;
 }
+
+.choice.selected {
+    background-color: #9CAF88;
+    color: white;
+}
