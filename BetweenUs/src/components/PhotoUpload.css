@@ -221,3 +221,17 @@
     text-align: center;
     background-color: #EDE7DF;
 }
+
+.modal-choices {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.choice {
+    padding: 8px;
+    border-radius: 12px;
+    background-color: #f0f0f0;
+    border: none;
+    cursor: pointer;
+}
