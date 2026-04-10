@@ -226,15 +226,17 @@
     display: flex;
     justify-content: center;
     gap: 10px;
+    margin-bottom: 20px;
 }
 
 .choice {
     padding: 8px 16px;
-    border-radius: 20px;
+    border-radius: 999px;
     background-color: #f5f0ea;
     border: none;
+    font-size: 0.9rem;
     cursor: pointer;
-    transition: background-color 0.15s ease;
+    transition: all 0.15s ease;
 }
 
 .choice:hover {
