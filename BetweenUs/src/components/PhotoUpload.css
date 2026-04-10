@@ -215,11 +215,13 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 90%;
-    max-width: 450px;
-    border-radius: 15px;
-    padding: 10px;
+    max-width: 420px;
+    border-radius: 16px;
+    padding: 24px;
     text-align: center;
-    background-color: #EDE7DF;
+    background-color: #F7F3ED;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.18);
+    text-align: center;
 }
 
 .modal-choices {
