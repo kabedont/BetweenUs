@@ -246,6 +246,9 @@
     color: white;
 }
 
-.modal-cancel {
-    
+.modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 10px;
 }
