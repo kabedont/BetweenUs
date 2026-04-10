@@ -158,7 +158,7 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
                 <button className={`choice ${selectedExpiry === 30? 'selected' : ''}`} onClick = {() => setSelectedExpiry(30)}>30 days</button>
                 <button className={`choice ${selectedExpiry === null? 'selected' : ''}`} onClick = {() => setSelectedExpiry(null)}>never</button>
               </div>
-              <button className='modal-cancel' onClick = {() => closeExpiryModal}>cancel</button>
+              <button className='modal-cancel' onClick = {closeExpiryModal}>cancel</button>
               <button className='modal-generate-link' onClick = {() => {handleShare(selectedExpiry); closeExpiryModal();}}>generate link</button>
             </div>
           </div>
