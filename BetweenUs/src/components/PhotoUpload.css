@@ -252,3 +252,11 @@
     gap: 16px;
     margin-top: 10px;
 }
+
+.modal-cancel {
+    padding: 10px;
+    border-radius: 10px;
+    background: transparent;
+    border: 1px solid #d8d2c8;
+    cursor: pointer;
+}
