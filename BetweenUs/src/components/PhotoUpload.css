@@ -290,4 +290,10 @@
     color: #3F4A3C;
     border: none;
     cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.modal-generate-link:hover {
+    background-color: #879f74;
+    transform: translateY(-1px);
 }
