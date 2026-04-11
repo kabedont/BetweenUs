@@ -297,3 +297,7 @@
     background-color: #879f74;
     transform: translateY(-1px);
 }
+
+.modal-generate-link:active {
+    transform: translateY(0);
+}
