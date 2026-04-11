@@ -94,6 +94,7 @@ function AppContent() {
                 setDescription={setDescription}
                 isExpiryModalOpen={isExpiryModalOpen}
                 closeExpiryModal={closeExpirymodal}
+                handleShare={handleShare}
               />
             }
           />
