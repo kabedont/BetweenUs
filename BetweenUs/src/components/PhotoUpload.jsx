@@ -3,7 +3,7 @@ import {supabase} from '../supabaseClient';
 import './PhotoUpload.css';
 import uploadImage from '../uploadImage';
 
-function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos, description, setDescription, isExpiryModalOpen, closeExpiryModal}) {
+function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos, description, setDescription, isExpiryModalOpen, closeExpiryModal, handleShare}) {
   //uploaded pictures
   const [selectedSlot, setSelectedSlot] = useState(null); //remember clicked slot
   const [uploadingSlots, setUploadingSlots] = useState({}); //remember if slots are uploading
