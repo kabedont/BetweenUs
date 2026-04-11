@@ -229,6 +229,12 @@
     margin-bottom: 8px;
 }
 
+.modal-question {
+    font-size: 0.95rem;
+    color: #5a5a5a;
+    margin-bottom: 16px;
+}
+
 .modal-choices {
     display: flex;
     justify-content: center;

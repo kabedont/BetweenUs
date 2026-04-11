@@ -151,7 +151,7 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
           <>
           <div className='modal-overlay' onClick = {() => closeExpiryModal}>
             <div className='modal-content' onClick = {(e) => e.stopPropagation()}>
-              <div className='modal-title'>share your gallery</div>
+              <div className='modal-title'>🌷share your gallery</div>
               <div className='modal-question'>how long should it last?</div>
               <div className='modal-choices'>
                 <button className={`choice ${selectedExpiry === 7? 'selected' : ''}`} onClick = {() => setSelectedExpiry(7)}>7 days</button>
