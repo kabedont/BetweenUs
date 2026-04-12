@@ -68,6 +68,7 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
 
   //share button
   const[selectedExpiry, setSelectedExpiry] = useState(30);
+  const[toastVisible, setToastVisible] = useState(false);
 
   //lightbox
   const[lightboxIndex, setLightboxIndex] = useState(null);
