@@ -173,6 +173,11 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
                   generate link
                 </button>
               </div>
+              {toastVisible && (
+                <div className="toast">
+                  ✓ link copied to clipboard!
+                </div>
+              )}
             </div>
           </div>
           </>
