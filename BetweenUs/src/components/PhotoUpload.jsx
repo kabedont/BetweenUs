@@ -161,23 +161,21 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
               </div>
               <div className='modal-actions'>
                 <button className='modal-cancel' onClick = {closeExpiryModal}>cancel</button>
-                <button className='modal-generate-link' 
-                  onClick = {() => {
-                    handleShare(selectedExpiry);
-                    setToastVisible(true);
-                    setTimeout(() => {
-                      setToastVisible(false);
-                      closeExpiryModal();
-                    }, 2000); 
-                  }}>
-                  generate link
-                </button>
-              </div>
-              {toastVisible && (
-                <div className="toast">
-                  ✓ link copied to clipboard!
+                <div style={{position: 'relative', flex: 1}}>
+                  <button className='modal-generate-link' 
+                    onClick = {() => {
+                      handleShare(selectedExpiry);
+                      setToastVisible(true);
+                      setTimeout(() => {
+                        setToastVisible(false);
+                        closeExpiryModal();
+                      }, 3000); 
+                    }}>
+                    generate link
+                  </button>
+                  {toastVisible && <div className="toast">✓ Copied!</div>}
                 </div>
-              )}
+              </div>
             </div>
           </div>
           </>
