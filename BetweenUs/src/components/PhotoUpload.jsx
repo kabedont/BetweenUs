@@ -181,6 +181,11 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
           </div>
           </>
           }
+          {warningToastVisible && (
+            <div className='warning-toast'>
+              add at least one photo first 📸
+            </div>
+          )}
       </>
   );
 }
