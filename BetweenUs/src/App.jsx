@@ -39,7 +39,7 @@ function AppContent() {
     const hasPhotos = photos.some(photo => photo !== null);
 
     if (!gridSize || !hasPhotos){
-      return {success: false, error: "no_photos"};
+      return false;
     }
 
     const galleryId = await saveGallery(gridSize, photos, description, expiryDays)
