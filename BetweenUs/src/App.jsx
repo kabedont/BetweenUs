@@ -52,7 +52,7 @@ function AppContent() {
 
     const shareLink = `${window.location.origin}/gallery/${galleryId}`
     await navigator.clipboard.writeText(shareLink)
-    alert(`Link copied: ${shareLink}`)
+    return shareLink
   }
 
   const setMode = (newMode) => {

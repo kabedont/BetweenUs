@@ -163,8 +163,8 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
                 <button className='modal-cancel' onClick = {closeExpiryModal}>cancel</button>
                 <div style={{position: 'relative', flex: 1}}>
                   <button className='modal-generate-link' 
-                    onClick = {() => {
-                      handleShare(selectedExpiry);
+                    onClick = {async () => {
+                      await handleShare(selectedExpiry);
                       setToastVisible(true);
                       setTimeout(() => {
                         setToastVisible(false);
