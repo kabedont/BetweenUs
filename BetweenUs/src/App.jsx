@@ -39,8 +39,7 @@ function AppContent() {
     const hasPhotos = photos.some(photo => photo !== null);
 
     if (!gridSize || !hasPhotos){
-      alert("Please add at least one photo first!")
-      return
+      return {success: false, error: "no_photos"};
     }
 
     const galleryId = await saveGallery(gridSize, photos, description, expiryDays)
