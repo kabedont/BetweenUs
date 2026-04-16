@@ -69,7 +69,7 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
   //share button
   const[selectedExpiry, setSelectedExpiry] = useState(30);
   const[toastVisible, setToastVisible] = useState(false);
-  const[warningToastVisible, setWarningToastVisible] = useState(false);
+  const[toastMessage, setToastMessage] = useState("");
 
   //lightbox
   const[lightboxIndex, setLightboxIndex] = useState(null);
@@ -167,32 +167,23 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
                     onClick = {async () => {
                       const success = await handleShare(selectedExpiry);
                       
-                      if (success === false){
-                        setWarningToastVisible(true);
-                        setTimeout(() => setWarningToastVisible(false), 2000);
-                        return;
-                      }
-                      
+                      setToastMessage(success ? "✓ copied!" : "add at least one photo first! 📸")
                       setToastVisible(true);
+
                       setTimeout(() => {
                         setToastVisible(false);
                         closeExpiryModal();
-                      }, 3000); 
+                      }, 2000); 
                     }}>
                     generate link
                   </button>
-                  {toastVisible && <div className="toast">✓ Copied!</div>}
+                  {toastVisible && <div className="toast">{toastMessage}</div>}
                 </div>
               </div>
             </div>
           </div>
           </>
           }
-          {warningToastVisible && (
-            <div className='warning-toast'>
-              add at least one photo first! 📸
-            </div>
-          )}
       </>
   );
 }

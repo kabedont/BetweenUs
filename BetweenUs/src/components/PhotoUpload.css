@@ -334,7 +334,3 @@
         transform: translateY(-50%) translateX(0);
     }
 }
-
-.warning-toast{
-    position: absolute;
-}
