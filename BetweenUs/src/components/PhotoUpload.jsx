@@ -165,7 +165,14 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
                 <div style={{position: 'relative', flex: 1}}>
                   <button className='modal-generate-link' 
                     onClick = {async () => {
-                      await handleShare(selectedExpiry);
+                      const success = await handleShare(selectedExpiry);
+                      
+                      if (success === false){
+                        setWarningToastVisible(true);
+                        setTimeout(() => setWarningToastVisible(false), 2000);
+                        return;
+                      }
+                      
                       setToastVisible(true);
                       setTimeout(() => {
                         setToastVisible(false);
@@ -183,7 +190,7 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
           }
           {warningToastVisible && (
             <div className='warning-toast'>
-              add at least one photo first 📸
+              add at least one photo first! 📸
             </div>
           )}
       </>
