@@ -167,7 +167,7 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
                     onClick = {async () => {
                       const success = await handleShare(selectedExpiry);
                       
-                      setToastMessage(success ? "✓ copied!" : "add at least one photo first! 📸")
+                      setToastMessage(success ? "💌 Link ready!" : "🌸 Add a photo first, friend!")
                       setToastVisible(true);
 
                       setTimeout(() => {

@@ -306,9 +306,10 @@
 
 .toast {
     position: absolute;
-    right: -130px;
+    left: 120%;           /* sits to the right of the button */
     top: 50%;
     transform: translateY(-50%);
+    margin-left: 12px;    /* gap between button and toast */
 
     background-color: #EDE7DF;
     color: #4a5b44;
