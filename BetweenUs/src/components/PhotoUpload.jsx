@@ -158,7 +158,7 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
               <div className='modal-choices'>
                 <button className={`choice ${selectedExpiry === 7? 'selected' : ''}`} onClick = {() => setSelectedExpiry(7)}>7 days</button>
                 <button className={`choice ${selectedExpiry === 30? 'selected' : ''}`} onClick = {() => setSelectedExpiry(30)}>30 days</button>
-                <button className={`choice ${selectedExpiry === null? 'selected' : ''}`} onClick = {() => setSelectedExpiry(null)}>never</button>
+                <button className={`choice ${selectedExpiry === null? 'selected' : ''}`} onClick = {() => setSelectedExpiry(null)}>always</button>
               </div>
               <div className='modal-actions'>
                 <button className='modal-cancel' onClick = {closeExpiryModal}>cancel</button>
@@ -167,7 +167,7 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
                     onClick = {async () => {
                       const success = await handleShare(selectedExpiry);
                       
-                      setToastMessage(success ? "💌 Link ready!" : "🌸 Add a photo first, friend!")
+                      setToastMessage(success ? "💌 link ready!" : "🌸 add a photo first, friend!")
                       setToastVisible(true);
 
                       setTimeout(() => {
