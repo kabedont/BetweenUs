@@ -181,6 +181,12 @@
     outline: none;  
 }
 
+.description textarea::placeholder {
+    color: #b8b2a8;
+    font-style: italic;
+    opacity: 0.9;
+}
+
 /*for view mode*/
 .view-textarea {
     width: 100%;

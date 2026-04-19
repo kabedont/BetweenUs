@@ -129,7 +129,7 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
                 {lightboxMode === 'edit' ? (
                   <textarea 
                     ref={textareaRef}
-                    placeholder='add your description!' 
+                    placeholder='maybe a little memory...' 
                     value={description[lightboxIndex] || ''}
                     onChange={(e) => {
                       const copy = [...description];
