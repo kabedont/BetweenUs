@@ -132,7 +132,7 @@
 
 .lightbox-content{
     background: #EDE7DF;
-    padding: 18px;
+    padding: 20px 20px 28px; 
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     max-width: 70%;
@@ -195,6 +195,7 @@
     outline: none;
     user-select: none;      /*prevents text selection*/
     caret-color: transparent;  /* hides the blinking cursor */
+    pointer-events: none;
 }
 
 /*SHARE-MODAL*/
