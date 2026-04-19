@@ -207,7 +207,8 @@
     outline: none;
     user-select: none;      /*prevents text selection*/
     caret-color: transparent;  /* hides the blinking cursor */
-    pointer-events: none;
+    overflow-y: auto;
+    cursor: default;
 }
 
 /*SHARE-MODAL*/
