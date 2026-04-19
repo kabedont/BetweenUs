@@ -131,8 +131,8 @@
 }
 
 .lightbox-content{
-    background: #EDE7DF;
-    padding: 20px 20px 28px; 
+    background: #F7F3ED;
+    padding: 20px 20px 32px; 
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     max-width: 70%;
@@ -141,13 +141,14 @@
     overflow: auto; 
     min-width: 0; 
     max-width: 600px; 
+    transform: rotate(-1deg);
     animation: fadeIn 0.2s ease;
 }
 
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: scale(0.95);
+        transform: scale(0.96);
     }
     to {
         opacity: 1;
@@ -159,6 +160,7 @@
     max-width: 100%;
     max-height: 60vh;
     object-fit: contain;
+    margin-bottom: 10px;
 }
 
 .description{
@@ -197,6 +199,10 @@
     text-align: center;
     line-height: 1.5;
     color: #2c2c2c;
+    font-style: italic;
+    opacity: 0.85;
+    letter-spacing: 0.2px;
+
     resize: none;
     outline: none;
     user-select: none;      /*prevents text selection*/
