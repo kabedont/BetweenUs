@@ -110,15 +110,15 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
                 <>
                 {mode === `edit` && (
                   uploadingSlots[index] ? (
-                    <div className='uploading-spinner'><div className="spinner"/></div>
+                    <div className='uploading-dots'><span>.</span><span>.</span><span>.</span></div>
                   ) : (
-                  <button className='slots' onClick={() => handleSlotClick(index)}>+</button>
+                    <button className='slots' onClick={() => handleSlotClick(index)}>+</button>
                   )
                 )}
                 </>
               )}
             </div>
-          ))}
+          ))} 
         <input type="file" accept="image/*" onChange={handleFileSelect} ref={fileInputRef} style={{display: 'none'}}/>
         </div>
         {lightboxIndex !== null && (
