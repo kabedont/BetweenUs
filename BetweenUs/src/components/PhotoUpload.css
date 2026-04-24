@@ -361,5 +361,24 @@
     
     .slots, .grid-option {
         padding: 2.0rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    /*LIGHTHBOX*/
+    
+    .lightbox-content {
+        max-width: 90vw;
+        max-height: 85vh;
+        padding: 16px;
+    }
+
+    .lightbox-image {
+        max-height: 50vh;
+        object-fit: contain;
+    }
+
+    .description textarea, .view-textarea, .view-text {
+        font-size: 0.85rem;
+        margin-top: 2px;
     }
 }
