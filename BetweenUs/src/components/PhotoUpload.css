@@ -350,3 +350,16 @@
         transform: translateY(-50%) translateX(0);
     }
 }
+
+
+/*MOBILE OVERRIDES*/
+
+@media(max-width: 600px){
+    .photo-grid {
+        padding: 10px;
+    }
+    
+    .slots, .grid-option {
+        padding: 2.0rem 1.5rem;
+    }
+}
