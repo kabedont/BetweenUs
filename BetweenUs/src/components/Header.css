@@ -77,3 +77,28 @@
 .share-btn:hover{
     background-color: #d6cec4;
 }
+
+@media (max-width: 600px){
+    .navbar{
+        padding: 0.8rem 1rem;
+    }
+
+    .logo a{
+        font-size: 1.4rem;
+        padding: 0.5rem;
+    }
+
+    .options{
+        gap: 0.8rem;
+    }
+
+    .mode-btn{
+        padding: 4px 10px;
+        font-size: 0.8rem;
+    }
+
+    .share-btn{
+        padding: 4px 10px;
+        font-size: 0.8rem;
+    }
+}
