@@ -16,10 +16,6 @@ html, body {
     padding: 0.70rem 3rem;
     background-color: #EDE7DF;
     border-bottom: 2px solid #ddd;
-
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
 }
 
 .logo a {
