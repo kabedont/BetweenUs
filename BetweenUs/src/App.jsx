@@ -68,37 +68,41 @@ function AppContent() {
 
   return (
     <div className="App">
-      <Header 
-        mode={currentMode} 
-        onModeChange={setMode} 
-        showControls={location.pathname==='/upload'} 
-        onShare={handleShare}
-        onShareClick={openExpiryModal}
-      />
+      <Header>
+        <div className="page-container">
+          mode={currentMode} 
+          onModeChange={setMode} 
+          showControls={location.pathname==='/upload'} 
+          onShare={handleShare}
+          onShareClick={openExpiryModal}
+        </div>
+      </Header>
       <div className="main-content">
-        <Routes>
-          <Route path="/" element={<GridSelection onConfirm={handleConfirm}/>}/>
-          <Route 
-            path="/upload" 
-            element={
-              <PhotoUpload 
-                gridSize={gridSize} 
-                mode={currentMode}
-                rows={rows}
-                cols={cols}
-                totalSlots={totalSlots}
-                photos={photos}
-                setPhotos={setPhotos}
-                description={description}
-                setDescription={setDescription}
-                isExpiryModalOpen={isExpiryModalOpen}
-                closeExpiryModal={closeExpirymodal}
-                handleShare={handleShare}
-              />
-            }
-          />
-          <Route path="/gallery/:id" element={<GalleryView />}/>
-        </Routes>
+        <div className="page-container">
+          <Routes>
+            <Route path="/" element={<GridSelection onConfirm={handleConfirm}/>}/>
+            <Route 
+              path="/upload" 
+              element={
+                <PhotoUpload 
+                  gridSize={gridSize} 
+                  mode={currentMode}
+                  rows={rows}
+                  cols={cols}
+                  totalSlots={totalSlots}
+                  photos={photos}
+                  setPhotos={setPhotos}
+                  description={description}
+                  setDescription={setDescription}
+                  isExpiryModalOpen={isExpiryModalOpen}
+                  closeExpiryModal={closeExpirymodal}
+                  handleShare={handleShare}
+                />
+              }
+            />
+            <Route path="/gallery/:id" element={<GalleryView />}/>
+          </Routes>
+        </div>
       </div>
     </div>
   );

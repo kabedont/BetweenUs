@@ -25,6 +25,13 @@ header{
   width: 100%;
 }
 
+.page-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
 .App{
   display: flex;
   flex-direction: column;
