@@ -356,13 +356,17 @@
 
 @media(max-width: 600px){
     .photo-grid {
-        padding: 10px;
+        padding: 5px;
         width: 100%;
     }
     
     .slots, .grid-option {
         padding: 2.0rem 1.5rem;
         font-size: 0.9rem;
+    }
+
+    .slot-container {
+        border: 1px solid #d8d2c8;
     }
 
     /*LIGHTHBOX*/
