@@ -26,14 +26,14 @@
 
 .grid-option:hover{
     background-color:#e4ded7;
-    transform: scale(1.05);
+    transform: scale(0.97);
     box-shadow: 0px 2px 4px rgba(0,0,0,0.1);
 }
 
 .grid-option.selected{
     background-color: #9caf885c;
     border-color: #2c2c2cc7;
-    transform: scale(1.05);
+    transform: scale(0.95);
 }
 
 .confirm-wrapper {
@@ -57,7 +57,7 @@
 
 .confirm:hover{
     background-color: #e4ded7;
-    transform: scale(1.05);
+    transform: scale(0.97);
 }
 
 .confirm:disabled{
