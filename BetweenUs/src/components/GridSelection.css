@@ -2,6 +2,10 @@
     justify-items: center;
 }
 
+.question, .button-group + p {
+    text-align: center;
+}
+
 .button-group{
     display:flex;
     justify-content: center;
