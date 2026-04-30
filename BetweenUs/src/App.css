@@ -47,7 +47,7 @@ header{
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  align-items: center;
-  justify-content: center;  
+  align-items: stretch;
+  justify-content: flex-start;  
   width: 100%;
 }
