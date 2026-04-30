@@ -357,6 +357,7 @@
 @media(max-width: 600px){
     .photo-grid {
         padding: 10px;
+        width: 100%;
     }
     
     .slots, .grid-option {

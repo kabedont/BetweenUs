@@ -68,15 +68,13 @@ function AppContent() {
 
   return (
     <div className="App">
-      <Header>
-        <div className="page-container">
-          mode={currentMode} 
-          onModeChange={setMode} 
-          showControls={location.pathname==='/upload'} 
-          onShare={handleShare}
-          onShareClick={openExpiryModal}
-        </div>
-      </Header>
+      <Header
+        mode={currentMode} 
+        onModeChange={setMode} 
+        showControls={location.pathname==='/upload'} 
+        onShare={handleShare}
+        onShareClick={openExpiryModal}
+      />
       <div className="main-content">
         <div className="page-container">
           <Routes>
