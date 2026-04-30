@@ -24,8 +24,10 @@ function GridSelection({onConfirm}){
         </div>
         
         <p>selected grid: {grid || "none"}</p>
-
-        <button className="confirm" onClick={() => {onConfirm(grid); navigate('/upload');}} disabled={!grid}>confirm</button> 
+        
+        <div className="confirm-wrapper">
+            <button className="confirm" onClick={() => {onConfirm(grid); navigate('/upload');}} disabled={!grid}>confirm</button> 
+        </div>
         </>
     )
 }

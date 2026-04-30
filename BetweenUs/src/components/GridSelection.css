@@ -32,8 +32,14 @@
     transform: scale(1.05);
 }
 
-.confirm{
+.confirm-wrapper {
+    display: flex;
+    justify-content: center;
     margin-top: 16px;
+}
+
+.confirm{
+    margin-top: 0;
     margin-bottom: 16px;
     background-color:#EDE7DF;
     padding: 0.5rem 2rem;
