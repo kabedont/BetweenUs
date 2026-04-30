@@ -30,6 +30,7 @@ header{
   max-width: 600px;
   margin: 0 auto;
   padding: 0 16px;
+  outline: 2px solid red;
 }
 
 .App{
