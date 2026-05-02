@@ -281,11 +281,16 @@
     justify-content: center;
     gap: 16px;
     margin-top: 10px;
+    width: 100%;   
+}
+
+.modal-actions button {
+    flex: 1;
+    min-width: 0;
+    box-sizing: border-box;
 }
 
 .modal-cancel {
-    flex: 1;
-    width: 100%;
     padding: 10px;
     border-radius: 10px;
     background: transparent;
@@ -299,8 +304,6 @@
 }
 
 .modal-generate-link {
-    flex: 1;
-    width: 100%;
     padding: 10px;
     border-radius: 10px;
     background-color: #9CAF88;

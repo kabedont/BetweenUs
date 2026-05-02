@@ -162,23 +162,21 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
               </div>
               <div className='modal-actions'>
                 <button className='modal-cancel' onClick = {closeExpiryModal}>cancel</button>
-                <div style={{position: 'relative', flex: 1}}>
-                  <button className='modal-generate-link' 
-                    onClick = {async () => {
-                      const success = await handleShare(selectedExpiry);
-                      
-                      setToastMessage(success ? "💌 link ready!" : "🌸 add a photo first, friend!")
-                      setToastVisible(true);
+                <button className='modal-generate-link' 
+                  onClick = {async () => {
+                    const success = await handleShare(selectedExpiry);
+                    
+                    setToastMessage(success ? "💌 link ready!" : "🌸 add a photo first, friend!")
+                    setToastVisible(true);
 
-                      setTimeout(() => {
-                        setToastVisible(false);
-                        closeExpiryModal();
-                      }, 2000); 
-                    }}>
-                    generate link
-                  </button>
-                  {toastVisible && <div className="toast">{toastMessage}</div>}
-                </div>
+                    setTimeout(() => {
+                      setToastVisible(false);
+                      closeExpiryModal();
+                    }, 2000); 
+                  }}>
+                  generate link
+                </button>
+                {toastVisible && <div className="toast">{toastMessage}</div>}
               </div>
             </div>
           </div>
