@@ -303,7 +303,13 @@
     background-color: #f0ebe5;
 }
 
+.generate-wrapper {
+    position: relative;
+    flex: 1;
+}
+
 .modal-generate-link {
+    width: 100%;
     padding: 10px;
     border-radius: 10px;
     background-color: #9CAF88;
