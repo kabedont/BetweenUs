@@ -50,6 +50,7 @@ html, body {
 
 .mode-btn{
     border: none;
+    font-size: 0.9rem;
     padding: 5px 12px;
     border-radius: 999px;
     background: transparent;
@@ -71,6 +72,7 @@ html, body {
 .share-btn{
     background: #e4ded7;
     border: none;
+    font-size: 0.9rem;
     border-radius: 999px;
     padding: 5px 12px;
     font-weight: 500;
@@ -89,7 +91,7 @@ html, body {
     }
 
     .logo a{
-        font-size: 1.4rem;
+        font-size: 1.35rem;
         padding: 0.5rem;
     }
 
@@ -98,12 +100,12 @@ html, body {
     }
 
     .mode-btn{
-        padding: 4px 10px;
-        font-size: 0.8rem;
+        padding: 4px 9px;
+        font-size: 0.78rem;
     }
 
     .share-btn{
-        padding: 4px 10px;
-        font-size: 0.8rem;
+        padding: 4px 9px;
+        font-size: 0.78rem;
     }
 }
