@@ -122,7 +122,7 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
         <input type="file" accept="image/*" onChange={handleFileSelect} ref={fileInputRef} style={{display: 'none'}}/>
         </div>
         {lightboxIndex !== null && (
-          <div className='lightbox-overlay' onClick={() => setLightboxIndex(null)}>
+          <div className={`lightbox-overlay ${mode === `edit` ? `edit-mode` : ``}`} onClick={() => setLightboxIndex(null)}>
             <div className='lightbox-content' onClick={(e) => e.stopPropagation()}>
               <img src={photos[lightboxIndex]} className='lightbox-image'/>
               <div className='description'>
