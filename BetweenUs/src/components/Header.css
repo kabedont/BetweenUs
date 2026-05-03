@@ -41,7 +41,7 @@ html, body {
 }
 
 .mode-toggle{
-    background: #e4ded7;
+    background: #e8e2da;
     border-radius: 999px;
     display: flex;
     gap: 4px;
@@ -70,7 +70,7 @@ html, body {
 }
 
 .share-btn{
-    background: #e4ded7;
+    background: #e8e2da;
     border: none;
     font-size: 0.9rem;
     border-radius: 999px;
