@@ -21,8 +21,8 @@ html, body {
 .logo a {
     font-family: 'Playfair Display', serif;
     text-decoration: none;
-    font-size: 1.5rem;
-    font-weight: bold;    
+    font-size: 1.55rem;
+    font-weight: 600;    
     color: #2C2C2C;
 }
 
@@ -50,10 +50,9 @@ html, body {
 
 .mode-btn{
     border: none;
-    padding: 6px 14px;
+    padding: 5px 12px;
     border-radius: 999px;
     background: transparent;
-    font-family: 'Inter', sans-serif;
     font-weight: 500;
     color: #2c2c2c;
     cursor: pointer;
@@ -73,8 +72,7 @@ html, body {
     background: #e4ded7;
     border: none;
     border-radius: 999px;
-    padding: 6px 12px;
-    font-family: 'Inter', sans-serif;
+    padding: 5px 12px;
     font-weight: 500;
     color: #2c2c2c;
     cursor: pointer;
