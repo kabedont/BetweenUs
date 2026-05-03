@@ -24,6 +24,7 @@ html, body {
     font-size: 1.55rem;
     font-weight: 600;    
     color: #2C2C2C;
+    letter-spacing: 0.5px;
 }
 
 .options{
