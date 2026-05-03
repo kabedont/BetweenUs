@@ -379,6 +379,11 @@
     }
 
     /*LIGHTHBOX*/
+
+    .lightbox-overlay.edit-mode {
+        align-items: flex-start; 
+        padding-top: 40px;
+    }
     
     .lightbox-content {
         max-width: 90vw;
