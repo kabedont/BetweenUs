@@ -70,6 +70,7 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
   const[selectedExpiry, setSelectedExpiry] = useState(30);
   const[toastVisible, setToastVisible] = useState(false);
   const[toastMessage, setToastMessage] = useState("");
+  const[isGenerating, setIsGenerating] = useState(false);
 
   //lightbox
   const[lightboxIndex, setLightboxIndex] = useState(null);
@@ -165,6 +166,8 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
                 <div className='generate-wrapper'>
                   <button className='modal-generate-link' 
                     onClick = {async () => {
+                      setIsGenerating(true);
+
                       const success = await handleShare(selectedExpiry);
                       
                       setToastMessage(success ? "💌 link ready!" : "🌸 add a photo first, friend!")
@@ -175,7 +178,7 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
                         closeExpiryModal();
                       }, 2000); 
                     }}>
-                    generate link
+                    {isGenerating ? "creating..." : "generate link"}
                   </button>
                   {toastVisible && <div className="toast">{toastMessage}</div>}
                 </div>
