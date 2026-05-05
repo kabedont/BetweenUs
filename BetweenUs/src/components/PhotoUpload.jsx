@@ -175,6 +175,7 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
                 <button className='modal-cancel' onClick = {closeExpiryModal}>cancel</button>
                 <div className='generate-wrapper'>
                   <button className='modal-generate-link' 
+                    disabled={isGenerating}
                     onClick = {async () => {
                       setIsGenerating(true);
 
