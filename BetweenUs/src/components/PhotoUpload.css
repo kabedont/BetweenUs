@@ -328,6 +328,11 @@
     transform: translateY(0);
 }
 
+.modal-generate-link:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
 .toast {
     position: absolute;
     left: 120%;           /* sits to the right of the button */
