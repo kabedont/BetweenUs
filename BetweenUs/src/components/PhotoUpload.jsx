@@ -71,6 +71,16 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
   const[toastVisible, setToastVisible] = useState(false);
   const[toastMessage, setToastMessage] = useState("");
   const[isGenerating, setIsGenerating] = useState(false);
+  const showToast = (message, shouldClose = true) => {
+    setToastMessage(message);
+    setToastVisible(true);
+
+    setTimeout(() => {
+      setToastVisible(false);
+      if (shouldClose) closeExpiryModal;
+      setIsGenerating(false);
+    }, 2000);
+  };
 
   //lightbox
   const[lightboxIndex, setLightboxIndex] = useState(null);
