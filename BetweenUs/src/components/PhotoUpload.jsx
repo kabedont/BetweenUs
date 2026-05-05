@@ -71,13 +71,13 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
   const[toastVisible, setToastVisible] = useState(false);
   const[toastMessage, setToastMessage] = useState("");
   const[isGenerating, setIsGenerating] = useState(false);
-  const showToast = (message, shouldClose = true) => {
+  const showToast = (message, {close = false} = {}) => {
     setToastMessage(message);
     setToastVisible(true);
 
     setTimeout(() => {
       setToastVisible(false);
-      if (shouldClose) closeExpiryModal;
+      if (close) closeExpiryModal();
       setIsGenerating(false);
     }, 2000);
   };
@@ -181,11 +181,10 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
                       const success = await handleShare(selectedExpiry);
                       
                       if (!success) {
-                        showToast("🌸 add a photo first, friend!");
-                        setIsGenerating(false);
+                        showToast("🌸 add a photo first, friend!", {close: false});
                         return;
                       }
-                      showToast("💌 link ready!");
+                      showToast("💌 link ready!", {close: true});
                     }}>
                     {isGenerating ? "creating..." : "generate link"}
                   </button>
