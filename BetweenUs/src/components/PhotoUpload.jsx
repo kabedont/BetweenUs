@@ -183,6 +183,7 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
                       
                       if (!success) {
                         showToast("🌸 add a photo first, friend!", {close: false});
+                        setIsGenerating(false);
                         return;
                       }
                       showToast("💌 link ready!", {close: true});
