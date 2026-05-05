@@ -186,6 +186,8 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
                         setIsGenerating(false);
                         return;
                       }
+
+                      setIsGenerating(false);
                       showToast("💌 link ready!", {close: true});
                     }}>
                     {isGenerating ? "creating..." : "generate link"}
