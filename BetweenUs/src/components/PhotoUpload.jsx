@@ -180,13 +180,12 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
 
                       const success = await handleShare(selectedExpiry);
                       
-                      setToastMessage(success ? "💌 link ready!" : "🌸 add a photo first, friend!")
-                      setToastVisible(true);
-                      
-                      setTimeout(() => {
-                        setToastVisible(false);
-                        closeExpiryModal();
-                      }, 2000); 
+                      if (!success) {
+                        showToast("🌸 add a photo first, friend!");
+                        setIsGenerating(false);
+                        return;
+                      }
+                      showToast("💌 link ready!");
                     }}>
                     {isGenerating ? "creating..." : "generate link"}
                   </button>
