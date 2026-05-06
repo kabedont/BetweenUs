@@ -23,8 +23,13 @@ function GalleryView() {
       console.log('Gallery data:', data);  // Check what we got
       setGallery(data);
     }
-
     setLoading(false);
+
+    if (data.expires_at && Date.now() > new Date(data.expires_at).getTime()){
+      setExpired(true);
+      setLoading(false);
+      return;
+    }
 
     }
     fetchGallery();
