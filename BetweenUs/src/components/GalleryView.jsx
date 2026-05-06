@@ -2,6 +2,7 @@ import {useParams} from 'react-router-dom';
 import {useState, useEffect, Suspense} from 'react';
 import {supabase} from '../supabaseClient';
 import PhotoUpload from './PhotoUpload';
+import './GalleryView.css';
 
 function GalleryView() {
   const { id } = useParams(); //get gallery ID from URL
