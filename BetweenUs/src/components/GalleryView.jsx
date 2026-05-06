@@ -7,6 +7,7 @@ function GalleryView() {
   const { id } = useParams(); //get gallery ID from URL
   const [gallery, setGallery] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [expired, setExpired] = useState(false);
 
   useEffect(() => {
     async function fetchGallery() {
@@ -15,13 +16,16 @@ function GalleryView() {
         .select('*')
         .eq('id', id)
         .single();
+
     if (error) {
       console.error('Error fetching gallery:', error);
     } else {
       console.log('Gallery data:', data);  // Check what we got
       setGallery(data);
     }
+
     setLoading(false);
+
     }
     fetchGallery();
   }, [id]);
