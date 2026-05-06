@@ -37,6 +37,7 @@ function GalleryView() {
 
   if (loading) return <div>Loading...</div>;
   if (!gallery) return <div>Gallery not found</div>;
+  if (expired) return <div>This memory has faded 🌷</div>
 
   const [rows, cols] = gallery.grid_size.split('x').map(Number);
   const totalSlots = rows * cols;
