@@ -20,6 +20,7 @@
 
 .state-message.expired {
   background: rgba(247, 243, 237, 0.92);
+  backdrop-filter: blur(2px);
 }
 
 @keyframes softFadeIn {
