@@ -36,7 +36,13 @@ function GalleryView() {
     fetchGallery();
   }, [id]);
 
-  if (loading) return <div className="state-message loading">just a moment...</div>;
+  if (loading) return (
+      <div className="state-message loading">
+          <div className="state-content">
+              just a moment...
+          </div>
+      </div>
+  );
   if (!gallery) return <div className="state-message">this memory can’t be found 🌷</div>;
   if (expired) return <div className="state-message expired">this moment has passed 🌷</div>
 
