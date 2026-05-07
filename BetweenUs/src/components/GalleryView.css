@@ -19,7 +19,7 @@
 }
 
 .state-message.expired {
-  opacity: 0.85;
+  background: rgba(247, 243, 237, 0.92);
 }
 
 @keyframes softFadeIn {
