@@ -14,6 +14,14 @@
   animation: softFadeIn 0.4s ease;
 }
 
+.state-message.loading {
+  font-style: italic;
+}
+
+.state-message.expired {
+  opacity: 0.85;
+}
+
 @keyframes softFadeIn {
   from {
     opacity: 0;
