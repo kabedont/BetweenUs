@@ -50,17 +50,19 @@ function GalleryView() {
   const totalSlots = rows * cols;
 
   return (
-    <PhotoUpload
-      gridSize={gallery.grid_size}
-      mode="view"
-      rows={rows}
-      cols={cols}
-      totalSlots={totalSlots}
-      photos={gallery.image_urls}
-      setPhotos={() => {}}
-      description={gallery.descriptions}
-      setDescription={() => {}}
-    />
+    <div className="gallery-container">
+      <PhotoUpload
+        gridSize={gallery.grid_size}
+        mode="view"
+        rows={rows}
+        cols={cols}
+        totalSlots={totalSlots}
+        photos={gallery.image_urls}
+        setPhotos={() => {}}
+        description={gallery.descriptions}
+        setDescription={() => {}}
+      />
+    </div>
   );
 }
 
