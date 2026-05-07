@@ -14,6 +14,7 @@
 }
 
 .state-content {
+  font-family: 'Playfair Display', serif;
   animation: softFadeIn 0.5s ease;
 }
 
