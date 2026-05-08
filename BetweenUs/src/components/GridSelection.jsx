@@ -8,6 +8,7 @@ function GridSelection({onConfirm}){
     return(
         <>
         <h2 className="question">select your grid!</h2>
+        <p className="tagline">a small space for moments between you and someone</p>
 
         <div className="button-group">
             <button className={`grid-option ${grid === "2x2" ? "selected" : ""}`}
