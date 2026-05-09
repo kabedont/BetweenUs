@@ -97,6 +97,8 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
     }
   }, [lightboxMode, lightboxIndex]);
 
+  //lightbox rotations
+  const rotations = ["-1deg", "0.5deg", "-0.5deg", "1deg", "0deg", "0.8deg", "-0.8deg"];
 
   //return function
   return (
@@ -144,7 +146,7 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
                     value={description[lightboxIndex] || ''}
                     onChange={(e) => {
                       const copy = [...description];
-                      copy[lightboxIndex] = e.target.value;
+                      copy[lightboxIndex] = e.target.value; 
                       setDescription(copy);
                     }}
                   />
