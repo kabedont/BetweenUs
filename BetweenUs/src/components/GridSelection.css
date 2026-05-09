@@ -2,15 +2,21 @@
     justify-items: center;
 }
 
-.question, .button-group + p {
+.tagline, .question, .button-group + p {
     text-align: center;
+}
+
+.question {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2c2c2c;
+    margin-bottom: 6px;
 }
 
 .tagline {
     margin-top: 6px;
     margin-bottom: 28px;
     font-size: 0.95rem;
-    text-align: center;
     line-height: 1.5;
     color: #6f6a64;
     opacity: 0.9;
