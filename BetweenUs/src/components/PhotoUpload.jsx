@@ -105,7 +105,7 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
       <>
         <div className='photo-grid' style={{gridTemplateColumns: `repeat(${cols}, 1fr)`}}>
           {Array.from({length: totalSlots}).map((_, index) => (
-            <div key = {index} className='slot-container'>
+            <div key = {index} className='slot-container' style={{'--rotation': rotations[index % rotations.length]}}>
               {photos[index] ? ( 
                 <>
                 <div className='image-wrapper' onMouseEnter={() => handleHover(index)} onMouseLeave={handleLeave}> 
