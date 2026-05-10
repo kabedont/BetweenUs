@@ -105,7 +105,7 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
       <>
         <div className='photo-grid' style={{gridTemplateColumns: `repeat(${cols}, 1fr)`}}>
           {Array.from({length: totalSlots}).map((_, index) => (
-            <div key = {index} className='slot-container' style={{'--rotation': rotations[index % rotations.length]}}>
+            <div key = {index} className='slot-container'>
               {photos[index] ? ( 
                 <>
                 <div className='image-wrapper' onMouseEnter={() => handleHover(index)} onMouseLeave={handleLeave}> 
@@ -136,7 +136,7 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
         </div>
         {lightboxIndex !== null && (
           <div className={`lightbox-overlay ${mode === `edit` ? `edit-mode` : ``}`} onClick={() => setLightboxIndex(null)}>
-            <div className='lightbox-content' onClick={(e) => e.stopPropagation()}>
+            <div className='lightbox-content' style={{'--rotation': rotations[index % rotations.length]}} onClick={(e) => e.stopPropagation()}>
               <img src={photos[lightboxIndex]} className='lightbox-image'/>
               <div className='description'>
                 {lightboxMode === 'edit' ? (
