@@ -136,7 +136,7 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
         </div>
         {lightboxIndex !== null && (
           <div className={`lightbox-overlay ${mode === `edit` ? `edit-mode` : ``}`} onClick={() => setLightboxIndex(null)}>
-            <div className='lightbox-content' style={{'--rotation': rotations[lightboxIndex % rotations.length]}} onClick={(e) => e.stopPropagation()}>
+            <div className='lightbox-content' style={{'--rotation': lightboxMode === `view` ?  rotations[lightboxIndex % rotations.length] : `0deg`}} onClick={(e) => e.stopPropagation()}>
               <img src={photos[lightboxIndex]} className='lightbox-image'/>
               <div className='description'>
                 {lightboxMode === 'edit' ? (
