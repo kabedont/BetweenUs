@@ -82,6 +82,12 @@
 
 .view-mode-image{
     cursor: pointer;
+    transition:
+        filter 0.1s ease;
+}
+
+.image-wrapper:hover .view-mode-image{
+    filter: brightness(1.05);
 }
 
 .hover-menu{
