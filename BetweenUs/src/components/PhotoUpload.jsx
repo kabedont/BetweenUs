@@ -100,6 +100,9 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
   //lightbox rotations
   const rotations = ["-1deg", "0.5deg", "-0.5deg", "1deg", "0deg", "0.8deg", "-0.8deg"];
 
+  //cleanup when user leaves website
+  const [uploadPaths, setUploadedPaths] = useState([]);
+
   //return function
   return (
       <>
