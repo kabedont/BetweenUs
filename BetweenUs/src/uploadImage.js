@@ -26,7 +26,10 @@ async function uploadImage(file){
         .from('galleries')
         .getPublicUrl(fileName)
 
-    return urlData.publicUrl
+    return {
+        publicUrl: urlData.publicUrl,
+        filePath: fileName
+    }
 }
 
 export default uploadImage
