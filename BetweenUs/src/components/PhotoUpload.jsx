@@ -102,8 +102,10 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
 
   //cleanup when user leaves website
   const [uploadPaths, setUploadedPaths] = useState([]);
-  setUploadedPaths(prev => [...prev, filePath]);
-
+  const result = await uploadImage(file);
+  if (!result) return;
+  setUploadedPaths(prev => [...prev, result.filePath]);
+  
   //return function
   return (
       <>
