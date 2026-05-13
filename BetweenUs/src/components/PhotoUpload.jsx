@@ -4,6 +4,9 @@ import './PhotoUpload.css';
 import uploadImage from '../uploadImage';
 
 function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos, description, setDescription, isExpiryModalOpen, closeExpiryModal, handleShare}) {
+  //cleanup when user leaves website
+  const [uploadPaths, setUploadedPaths] = useState([]);
+
   //uploaded pictures
   const [selectedSlot, setSelectedSlot] = useState(null); //remember clicked slot
   const [uploadingSlots, setUploadingSlots] = useState({}); //remember if slots are uploading
@@ -17,7 +20,19 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
 
     setUploadingSlots(prev => ({...prev, [selectedSlot]: true}));   //slot marked as 'uploading' 
 
-    const imgUrl = await uploadImage(file);
+    const result = await uploadImage(file);
+
+    if (!result) {
+      setUploadingSlots(prev => ({
+        ...prev,
+        [selectedSlot]: false
+      }));
+      return;
+    }
+
+    const imgUrl = result.publicUrl;
+    
+    setUploadedPaths(prev => [...prev, result.filePath]);
 
     setUploadingSlots(prev => ({...prev, [selectedSlot]: false}));  //slot marked as 'done'
 
@@ -99,12 +114,6 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
 
   //lightbox rotations
   const rotations = ["-1deg", "0.5deg", "-0.5deg", "1deg", "0deg", "0.8deg", "-0.8deg"];
-
-  //cleanup when user leaves website
-  const [uploadPaths, setUploadedPaths] = useState([]);
-  const result = await uploadImage(file);
-  if (!result) return;
-  setUploadedPaths(prev => [...prev, result.filePath]);
   
   //return function
   return (
