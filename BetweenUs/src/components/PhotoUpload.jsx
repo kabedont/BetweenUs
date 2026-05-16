@@ -25,6 +25,12 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
     }
   };
 
+  useEffect(() => {
+    return () => {
+      cleanupUnusedImages();
+    };
+  }, [currentMode, gallerySaved, uploadedPaths]);
+
   const handleFileSelect = async (event) => {
     const file = event.target.files[0];
     if (!file) return;
