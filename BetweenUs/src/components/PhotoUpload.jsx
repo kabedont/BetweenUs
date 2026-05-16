@@ -27,7 +27,7 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
 
   useEffect(() => {
     return () => {
-      cleanupUnusedImages();
+      cleanupUnusedImages().catch(console.error);
     };
   }, [currentMode, gallerySaved, uploadedPaths]);
 
