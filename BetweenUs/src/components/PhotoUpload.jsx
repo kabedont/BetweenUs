@@ -5,7 +5,7 @@ import uploadImage from '../uploadImage';
 
 function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos, description, setDescription, isExpiryModalOpen, closeExpiryModal, handleShare}) {
   //cleanup when user leaves website
-  const [uploadPaths, setUploadedPaths] = useState([]);
+  const [uploadedPaths, setUploadedPaths] = useState([]);
   const [gallerySaved, setGallerySaved] = useState(false);
 
   //uploaded pictures
@@ -15,6 +15,16 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
     setSelectedSlot(index);         //remember which slot
     fileInputRef.current.click();   //open file picker
   }
+
+  //cleanup function
+  const cleanupUnusedImages = async () => {
+    if (currentMode === "edit" && !gallerySaved && uploadedPaths.length > 0){
+      await supabase.storage
+        .from('galleries')
+        .remove(uploadedPaths);
+    }
+  };
+
   const handleFileSelect = async (event) => {
     const file = event.target.files[0];
     if (!file) return;
