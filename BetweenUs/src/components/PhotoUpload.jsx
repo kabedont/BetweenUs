@@ -196,7 +196,6 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
                     disabled={isGenerating}
                     onClick = {async () => {
                       setIsGenerating(true);
-
                       const success = await handleShare(selectedExpiry);
                       
                       if (!success) {
@@ -205,6 +204,7 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
                         return;
                       }
 
+                      setGallerySaved(true);
                       setIsGenerating(false);
                       showToast("💌 link ready!", {close: true});
                     }}>
