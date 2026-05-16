@@ -6,6 +6,7 @@ import uploadImage from '../uploadImage';
 function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos, description, setDescription, isExpiryModalOpen, closeExpiryModal, handleShare}) {
   //cleanup when user leaves website
   const [uploadPaths, setUploadedPaths] = useState([]);
+  const [gallerySaved, setGallerySaved] = useState(false);
 
   //uploaded pictures
   const [selectedSlot, setSelectedSlot] = useState(null); //remember clicked slot
@@ -31,7 +32,7 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
     }
 
     const imgUrl = result.publicUrl;
-    
+
     setUploadedPaths(prev => [...prev, result.filePath]);
 
     setUploadingSlots(prev => ({...prev, [selectedSlot]: false}));  //slot marked as 'done'
