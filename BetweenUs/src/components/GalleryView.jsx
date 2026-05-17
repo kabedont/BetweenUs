@@ -22,17 +22,23 @@ function GalleryView() {
       console.error('Error fetching gallery:', error);
     } else {
       console.log('Gallery data:', data);  // Check what we got
-      setGallery(data);
-    }
-    setLoading(false);
+        //check if expired
+        if(data.expires_at && Date.now() > new Date(data.expires_at).getTime()) {
+          //delete expired DB rows
+          await supabase
+            .from('galleries')
+            .delete()
+            .eq('id', id);
 
-    if (data.expires_at && Date.now() > new Date(data.expires_at).getTime()){
-      setExpired(true);
+            setExpired(true);
+            setLoading(false);
+            return;
+        }
+        setGallery(data); //only runs if NOT expired
+      }
       setLoading(false);
-      return;
     }
 
-    }
     fetchGallery();
   }, [id]);
 
