@@ -18,7 +18,7 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
 
   //cleanup function
   const cleanupUnusedImages = async () => {
-    if (currentMode === "edit" && !gallerySaved && uploadedPaths.length > 0){
+    if (mode === "edit" && !gallerySaved && uploadedPaths.length > 0){
       await supabase.storage
         .from('galleries')
         .remove(uploadedPaths);
@@ -29,7 +29,7 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
     return () => {
       cleanupUnusedImages().catch(console.error);
     };
-  }, [currentMode, gallerySaved, uploadedPaths]);
+  }, [mode, gallerySaved, uploadedPaths]);
 
   const handleFileSelect = async (event) => {
     const file = event.target.files[0];
