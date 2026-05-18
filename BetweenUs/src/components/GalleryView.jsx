@@ -49,8 +49,9 @@ function GalleryView() {
           </div>
       </div>
   );
-  if (!gallery) return <div className="state-message">this memory can’t be found 🌷</div>;
+  
   if (expired) return <div className="state-message expired">this moment has passed 🌷</div>
+  if (!gallery) return <div className="state-message">this memory can’t be found 🌷</div>;
 
   const [rows, cols] = gallery.grid_size.split('x').map(Number);
   const totalSlots = rows * cols;
