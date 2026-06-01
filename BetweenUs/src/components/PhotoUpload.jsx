@@ -3,10 +3,10 @@ import {supabase} from '../supabaseClient';
 import './PhotoUpload.css';
 import uploadImage from '../uploadImage';
 
-function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos, description, setDescription, isExpiryModalOpen, closeExpiryModal, handleShare}) {
+function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos, description, setDescription, isExpiryModalOpen, closeExpiryModal, handleShare, gallerySaved, setGallerySaved}) {
   //cleanup when user leaves website
   const [uploadedPaths, setUploadedPaths] = useState([]);
-  const [gallerySaved, setGallerySaved] = useState(false);
+  const gallerySavedRef = useRef(false);
 
   //uploaded pictures
   const [selectedSlot, setSelectedSlot] = useState(null); //remember clicked slot
@@ -18,7 +18,9 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
 
   //cleanup function
   const cleanupUnusedImages = async () => {
-    if (mode === "edit" && !gallerySaved && uploadedPaths.length > 0){
+    console.log("cleanup running, gallerySaved:", gallerySavedRef.current)
+    if (mode === "edit" && !gallerySavedRef.current && uploadedPaths.length > 0){
+      console.log("DELETING IMAGES")
       await supabase.storage
         .from('galleries')
         .remove(uploadedPaths);
@@ -219,8 +221,9 @@ function PhotoUpload({gridSize, mode, rows, cols, totalSlots, photos, setPhotos,
                         setIsGenerating(false);
                         return;
                       }
-
+                      console.log("setting gallerySaved to true")
                       setGallerySaved(true);
+                      gallerySavedRef.current = true;
                       setIsGenerating(false);
                       showToast("💌 link ready!", {close: true});
                     }}>

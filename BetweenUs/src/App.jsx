@@ -19,6 +19,7 @@ function AppContent() {
   const [totalSlots, setTotalSlots] = useState(0);
   const [currentMode, setCurrentMode] = useState('edit');
   const [isExpiryModalOpen, setIsExpiryModalOpen] = useState(null);
+  const [gallerySaved, setGallerySaved] = useState(false);
 
   const handleConfirm = (size) => {
     const [rows, cols] = size.split('x').map(Number);
@@ -95,6 +96,8 @@ function AppContent() {
                   isExpiryModalOpen={isExpiryModalOpen}
                   closeExpiryModal={closeExpirymodal}
                   handleShare={handleShare}
+                  gallerySaved={gallerySaved}
+                  setGallerySaved={setGallerySaved}
                 />
               }
             />
