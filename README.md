@@ -1,10 +1,10 @@
-# Between Us 🖼️
+# Between Us 🌷
 
 A private photo gallery app for the people who matter most. Create a personalized collection of photos and captions, then share it with a single link — no account needed to view.
 
 <img width="700" alt="betweenus_homepage" src="https://github.com/user-attachments/assets/d9209158-c8f9-4b7c-ac1f-9baee7ee3c97" />
 
-## ✨ Features
+## Features
 
 - Upload photos into a clean grid layout
 - Add captions to each image
@@ -12,14 +12,14 @@ A private photo gallery app for the people who matter most. Create a personalize
 - Generate a unique shareable link for each gallery
 - Anyone with the link can view — no login required
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Frontend:** React (Vite)
 - **Styling:** CSS
 - **Database & Storage:** Supabase
 - **Deployment:** Vercel
 
-## 🚀 Live Demo
+## Live Demo
 
 👉 [betweenus-gallery.vercel.app](https://betweenus-gallery.vercel.app)
 
@@ -31,8 +31,10 @@ A private photo gallery app for the people who matter most. Create a personalize
 
 <img width="700" alt="betweenus_share" src="https://github.com/user-attachments/assets/36debff3-281c-4b7b-a5ef-983197e25897" />
 
+> **Note:** BetweenUs runs on Supabase's free tier, which pauses after periods of inactivity.
+> If images aren't loading, the project may be waking up — try again in a few minutes!
 
-## 📱 Mobile
+## Mobile
 
 Between Us is viewable on mobile devices.
 
